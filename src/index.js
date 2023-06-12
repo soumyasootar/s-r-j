@@ -17,7 +17,7 @@ const config = {
   initialColorMode: "light",
   useSystemColorMode: true,
 };
-const theme = extendTheme({ breakpoints, config });
+const theme = extendTheme({ config });
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider theme={theme}>

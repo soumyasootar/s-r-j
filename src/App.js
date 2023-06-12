@@ -1,18 +1,23 @@
-
-import { Box } from '@chakra-ui/react';
-import './App.css';
+import { Box } from "@chakra-ui/react";
+import "./App.css";
 import AllRoutes from "./Router/AllRoutes";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-
+import deskimage from "./Images/FrontDesk.jpg";
 
 function App() {
   return (
-    <Box>
-    <Navbar />
-    <AllRoutes />
-    <Footer/>
-  </Box>
+    <Box
+      bgImage={deskimage}
+      bgSize={{ base: "cover", md: "cover" }}
+      bgRepeat={"no-repeat"}
+      bgAttachment={"fixed"}
+      bgPosition={"center"}
+    >
+      <Navbar />
+      <AllRoutes />
+      <Footer />
+    </Box>
   );
 }
 

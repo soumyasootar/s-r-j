@@ -3,8 +3,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <Box bg={"dark"} width={"100%"}>
-        <Center >
+    <Box bg={"black"} color={"white"} width={"100%"}>
+        <Center h={"100px"} bg={"blackAlpha.200"}>
             <Text>{new Date().toLocaleDateString()}</Text>
         </Center>
     </Box>

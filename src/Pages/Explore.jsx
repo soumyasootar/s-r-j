@@ -1,8 +1,11 @@
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 const Explore = () => {
   return (
-    <div>Explore</div>
+    <Box height={"100vh"}>
+
+    </Box>
   )
 }
 

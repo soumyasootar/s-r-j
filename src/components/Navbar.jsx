@@ -30,8 +30,11 @@ const Navbar = () => {
         p={[0, 2, 5, 5]}
         bg={useColorModeValue("white", "dark")}
         boxShadow={"xl"}
+        position={"sticky"}
+        top={"0"}
+        zIndex={"overlay"}
       >
-        <Image src={logo} />
+        <Image src={logo} w={{  md: "250px", lg: "120px" }}/>
         <Spacer />
         <Stack
           direction="row"
@@ -55,7 +58,18 @@ const Navbar = () => {
           </Button>
           <Spacer />
         </Stack>
-        <Link href="/explore">
+        <>
+          <Button size={{ base: "lg", md: "lg", lg: "sm" }}
+            bg="#B43B3A"
+            color={"whiteAlpha.900"}
+            _hover={{color:"black"}}
+            onClick={onOpen}
+            display={{ base: "flex", md: "flex", lg: "none" }}
+          >
+            <HamburgerIcon/>
+          </Button>
+        </>
+        {/* <Link href="/explore">
           <Button size={"sm"}
             bg="#B43B3A"
             color={"whiteAlpha.900"}
@@ -65,7 +79,7 @@ const Navbar = () => {
           >
             Explore Jajpur 🏙️
           </Button>
-        </Link>
+        </Link> */}
         <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
           <DrawerOverlay />
           <DrawerContent>
