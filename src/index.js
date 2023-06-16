@@ -7,17 +7,17 @@ import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const breakpoints = {
-  sm: "320px",
+  sm: "390px",
   md: "888px",
-  lg: "960px",
-  xl: "1200px",
+  lg: "1000px",
+  xl: "1440px",
 };
 
 const config = {
   initialColorMode: "light",
   useSystemColorMode: true,
 };
-const theme = extendTheme({ config });
+const theme = extendTheme({ config ,breakpoints});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider theme={theme}>

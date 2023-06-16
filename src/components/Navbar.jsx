@@ -34,14 +34,14 @@ const Navbar = () => {
         top={"0"}
         zIndex={"overlay"}
       >
-        <Image src={logo} w={{  md: "250px", lg: "120px" }}/>
+        <Image src={logo} w={{ md: "250px", lg: "120px" }} />
         <Spacer />
         <Stack
           direction="row"
           w={"40%"}
           margin={"auto"}
           alignItems={"center"}
-          display={{ base: "none", md: "none", lg: "flex" }}
+          display={{ sm: "none", md: "none", lg: "flex" }}
         >
           <Link href="/">Home</Link>
           <Spacer />
@@ -59,14 +59,16 @@ const Navbar = () => {
           <Spacer />
         </Stack>
         <>
-          <Button size={{ base: "lg", md: "lg", lg: "sm" }}
+          <Button
+            size={"lg"}
             bg="#B43B3A"
             color={"whiteAlpha.900"}
-            _hover={{color:"black"}}
+            _hover={{ color: "black" }}
             onClick={onOpen}
-            display={{ base: "flex", md: "flex", lg: "none" }}
+            display={{ sm: "flex", md: "flex", lg: "none" }}
+
           >
-            <HamburgerIcon/>
+            <HamburgerIcon />
           </Button>
         </>
         {/* <Link href="/explore">
