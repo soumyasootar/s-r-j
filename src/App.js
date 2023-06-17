@@ -13,7 +13,7 @@ function App() {
       bgRepeat={"no-repeat"}
       bgAttachment={"fixed"}
       bgPosition={"center"}
-      w={"fit-content"}
+     
     >
       <Navbar />
       <AllRoutes />
