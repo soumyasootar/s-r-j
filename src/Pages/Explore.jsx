@@ -89,7 +89,7 @@ const Explore = () => {
         {blogs.map((blog, id) => (
           <Link to={`/explore/blog/${id}`} key={id}>
             <Card maxW="80%">
-              <CardBody p="0">
+              <CardBody p="1">
                 <Image
                   src={blog.img}
                   alt="Green double couch with wooden legs"
