@@ -16,13 +16,13 @@ const IndividualBlog = () => {
 
   console.log(id);
   return (
-    <Box>
+    <Box h={{sm: "100vh", md: "100vh", lg: "auto" }}>
       <Box
         bg={"white"}
         borderRadius={"xl"}
         p={"20px"}
         margin={"auto"}
-        my="10"
+        my="100px"
         width={["90%", "80%"]} // Adjust the width for mobile and desktop views
              >
         <Carousel  showThumbs={false} showStatus={false} autoPlay={true} interval={2000}  infiniteLoop={true}>
@@ -36,7 +36,7 @@ const IndividualBlog = () => {
             <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" />
           </div>
         </Carousel>
-        <Heading fontFamily={ "Comfortaa, cursive"}> <span style={{ color: "red" }} mb="5px">M</span>odern Premise in the Heritage town of Jajpur</Heading>
+        <Heading fontFamily={ "Comfortaa, cursive"} my="30"> <span style={{ color: "red" }}  >M</span>odern Premise in the Heritage town of Jajpur</Heading>
         <Text>
           From the very beginning, Sarita Resort was established with a vision
           to promote Jajpur tourism. The town of Jajpur that is known as Biraja

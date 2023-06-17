@@ -99,7 +99,7 @@ const Explore = () => {
               </CardBody>
               <Divider />
               <CardFooter pl="2" display={"flex"} flexDirection={"column"} >
-                <Heading  size="md" >
+                <Heading  size="md" fontFamily={"Verdana"} mb="2">
                   {blog.heading}
                 </Heading>
                 <Text>
