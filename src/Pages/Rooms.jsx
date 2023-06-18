@@ -11,6 +11,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RoomComponent = () => {
   return (
@@ -45,9 +46,11 @@ const RoomComponent = () => {
           </Text>
           {/* <Text fontSize={"3xl"} color={"#90461B"} >Starts from ₹599</Text> */}
           <Spacer />
+          <Link to={`/rooms/1234`}>
           <Button colorScheme="orange" alignSelf={"flex-end"}>
             Book Now @ ₹599 /-
           </Button>
+          </Link>
         </VStack>
       </Stack>
     </>
