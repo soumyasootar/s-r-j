@@ -8,14 +8,15 @@ import {
   Image,
   Select,
   Text,
-  VStack,
+  VStack,Table, Tbody, Tr, Td
 } from "@chakra-ui/react";
-import { ChakraProvider, Table, Tbody, Tr, Td } from "@chakra-ui/react";
+
 import { BsWifi } from "react-icons/bs";
 import { FaWater } from "react-icons/fa";
 import { MdRoomService } from "react-icons/md";
 import { AiFillCreditCard } from "react-icons/ai";
 import { BiShower } from "react-icons/bi";
+import FormComponent from "./FormComponent";
 // MdRoomService
 const ImageComponent = () => {
   return (
@@ -120,44 +121,7 @@ const CheckinCheckout = () => {
 const Amenities = () => {
   return (
     <>
-      {/* <Flex>
-        <Box>
-          <Icon boxSize={"20px"} as={BsWifi} color="white" />
-
-          <Text as={"span"} color="white">
-            Free Wi-Fi
-          </Text>
-        </Box>
-        <Box>
-         
-          <Icon boxSize={"20px"} as={FaWater} color="white" />
-          <Text as={"span"} color="white">
-          Hot water
-          </Text>
-        </Box>
-        <Box>
-          
-          <Icon boxSize={"20px"} as={MdRoomService} color="white" />
-          <Text as={"span"} color="white">
-          Hot water
-          </Text>
-        </Box>
-        <Box>
-         
-          <Icon boxSize={"20px"} as={AiFillCreditCard} color="white" />
-          <Text as={"span"} color="white">
-          Card Payment Accepted
-          </Text>
-        </Box>
-        <Box>
-        
-          <Icon boxSize={"20px"} as={BiShower} color="white" />
-          <Text as={"span"} color="white">
-          Shower
-          </Text>
-        </Box>
-      </Flex> */}
-
+     
       <Table variant="unstyled" w={"40%"}>
         <Tbody>
           <Tr>
@@ -230,6 +194,7 @@ const IndividualRoom = () => {
         <CheckinCheckout />
       </Flex>
       <Amenities />
+      {/* <FormComponent/> */}
     </>
   );
 };

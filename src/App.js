@@ -8,7 +8,8 @@ import deskimage from "./Images/FrontDesk.jpg";
 function App() {
   return (
     <Box
-      bgImage={deskimage}
+      // bgImage={deskimage}
+      bg={"rgb(243,243,243)"}
       bgSize={{ base: "cover", md: "cover" }}
       bgRepeat={"no-repeat"}
       bgAttachment={"fixed"}

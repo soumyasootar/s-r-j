@@ -20,13 +20,14 @@ import {
   Center,
   Heading,
 } from "@chakra-ui/react";
+
 import { AddIcon, MinusIcon, Search2Icon, SearchIcon } from "@chakra-ui/icons";
 import { BiHotel } from "react-icons/bi";
 // import { Box, Flex, Icon, Text } from '@chakra-ui/react';
 import { FiDollarSign, FiUsers, FiWifi } from "react-icons/fi";
 import { FaUtensils } from "react-icons/fa";
 import FamilyIcon from "../Images/FamilyIcon";
-
+<link href="https://fonts.googleapis.com/css2?family=High+Tower+Text&display=swap" rel="stylesheet"></link>
 const Home = () => {
   const [numberOfPersons, setNumberOfPersons] = useState(1);
 
@@ -46,20 +47,20 @@ const Home = () => {
     // Logic for finding rooms
   };
   return (
-    <Box height={"100%"}>
+    <Box height={"100%"} bgImage={deskimage} style={{
+      background: `url(${deskimage})`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundAttachment: "fixed",
+    }}>
       <Box
         color={"white"}
         
         // height={{ base: "100vh", md: "100vh" }}
         // w={"98.9vw"}
         p={"50"}
-        // style={{
-        //   background: `url(${deskimage})`,
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundPosition: "center",
-        //   backgroundSize: "cover",
-        //   backgroundAttachment: "fixed",
-        // }}
+        
       >
         <Box
           position={"relative"}
@@ -70,7 +71,7 @@ const Home = () => {
         >
           <Heading
             align={"start"}
-            fontFamily={""}
+            fontFamily={"High Tower Text"}
             fontWeight={"700"}
             fontSize={{ base: "9xl", md: "9xl",lg:"8xl" }}
             top={""}
