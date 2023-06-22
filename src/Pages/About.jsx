@@ -17,7 +17,12 @@ import deskimage from "../Images/FrontDesk.jpg";
 
 const About = () => {
   return (
-    <Box height={"100%"}>
+    <Box
+      height={"100%"}
+      bgImage={
+        "https://cdn1.goibibo.com/voy_ing/t_fs/d80858aa204511eca4bc0a58a9feac02.jpg"
+      }
+    >
       <Stack
         direction={{ base: "column", md: "column", lg: "row" }}
         p={"10"}
@@ -34,24 +39,44 @@ const About = () => {
           shadow={"2xl"}
         ></Image>
 
-        <Stack p={10}>
+        <Stack
+          p={10}
+          style={{
+            background: "rgba( 255, 255, 255, 0.25 )",
+            boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+            backdropFilter: "blur( 2px )",
+            WebkitBackdropFilter: "blur( 2px )",
+            borderRadius: "10px",
+            border: "1px solid rgba( 255, 255, 255, 0.18 )",
+          }}
+          
+        >
           <Heading
             align={"start"}
-            fontFamily={""}
+            fontFamily={"'Diphylleia', serif"}
             fontWeight={"700"}
             fontSize={{ base: "7xl", md: "7xl", lg: "5xl" }}
-            color={"#411B05"}
+            color={"#323232"}
             textShadow={"unset"}
+            style={{
+            textShadow:
+              "0px 0px 0 black, 1px 1px 0 white, 1px 1px 0 white, 1px 1px 0 black",
+          }}
           >
             A Modern Premise in the Heritage town of Jajpur
           </Heading>
           <Text
             align={"start"}
-            fontFamily={""}
+            fontFamily={"'Kaisei HarunoUmi', serif"}
             fontWeight={"600"}
             fontSize={{ base: "4xl", md: "4xl", lg: "xl" }}
             color={"white"}
+            style={{
+            textShadow:
+              "0px 0px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black",
+          }}
             top={""}
+            mt={{ base: "30x", md: "30px", lg: "" }}
           >
             From the very beginning, Sarita Resort was established with a vision
             to promote Jajpur tourism. The town of Jajpur that is known as

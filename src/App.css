@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap");
 
-
-
-#root,body,html{
-
-    font-family: 'Mulish', sans-serif;
-    font-weight: 700;
+@import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Kaisei+HarunoUmi:wght@400;500&family=Kaushan+Script&family=Salsa&family=Shippori+Antique+B1&display=swap');
+#root,
+body,
+html {
+  font-family: "'Diphylleia', serif";
+  font-weight: 600;
 }

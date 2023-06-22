@@ -127,16 +127,16 @@ const Amenities = () => {
           <Tr>
             <Td>
               <Flex alignItems={"center"}>
-                <Icon boxSize={"20px"} as={BsWifi} mr={"5px"} color="white" />
-                <Text as={"span"} color="white">
+                <Icon boxSize={"20px"} as={BsWifi} mr={"5px"} color="black" />
+                <Text as={"span"} color="black">
                   Free Wi-Fi
                 </Text>
               </Flex>
             </Td>
             <Td>
               <Flex alignItems={"center"}>
-                <Icon boxSize={"20px"} as={FaWater} mr={"5px"} color="white" />
-                <Text as={"span"} color="white">
+                <Icon boxSize={"20px"} as={FaWater} mr={"5px"} color="black" />
+                <Text as={"span"} color="black">
                   Hot water
                 </Text>
               </Flex>
@@ -147,9 +147,9 @@ const Amenities = () => {
                   boxSize={"20px"}
                   as={MdRoomService}
                   mr={"5px"}
-                  color="white"
+                  color="black"
                 />
-                <Text as={"span"} color="white">
+                <Text as={"span"} color="black">
                   24/7 Reception
                 </Text>
               </Flex>
@@ -162,17 +162,17 @@ const Amenities = () => {
                   boxSize={"20px"}
                   as={AiFillCreditCard}
                   mr={"5px"}
-                  color="white"
+                  color="black"
                 />
-                <Text as={"span"} color="white">
+                <Text as={"span"} color="black">
                   Card Payment Accepted
                 </Text>
               </Flex>
             </Td>
             <Td>
               <Flex alignItems={"center"}>
-                <Icon boxSize={"20px"} as={BiShower} mr={"5px"} color="white" />
-                <Text as={"span"} color="white">
+                <Icon boxSize={"20px"} as={BiShower} mr={"5px"} color="black" />
+                <Text as={"span"} color="black">
                   Shower
                 </Text>
               </Flex>
