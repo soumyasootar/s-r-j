@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Spacer,
+} from "@chakra-ui/react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import {
@@ -16,7 +23,12 @@ import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 const FormComponent = () => {
   const toast = useToast();
-  const [images, setimages] = useState();
+  // const [images, setimages] = useState([]);
+  const [img1, setImg1] = useState();
+  const [img2, setImg2] = useState();
+  const [img3, setImg3] = useState();
+  const [img4, setImg4] = useState();
+  const [img5, setImg5] = useState();
   const [title, settitle] = useState("");
   const [content, setcontent] = useState("");
   const [author, setauthor] = useState("");
@@ -26,32 +38,45 @@ const FormComponent = () => {
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
-  const handleimagesUpload = (pics) => {
-    if (pics === undefined) {
+  const handleimagesUpload1 = async (img1) => {
+    // setPicLoading(true);
+    if (img1 === undefined) {
       toast({
-        title: "Please Select an images!",
-        status: "warning",
+        title: "Please Select an Image!",
+        status: "error",
         duration: 5000,
         isClosable: true,
-        position: "bottom",
+        position: "bottom-left",
       });
       return;
     }
-    console.log(pics);
-    if (pics.type === "images/jpeg" || pics.type === "images/png") {
+    // console.log(img1);
+    if (
+      img1.type === "image/jpeg" ||
+      img1.type === "image/png" ||
+      img1.type === "image/jpg"
+    ) {
       const data = new FormData();
-      data.append("file", pics);
-      data.append("upload_preset", "chat-On");
-      data.append("cloud_name", "dfgqwy9io");
-      fetch("https://api.cloudinary.com/v1_1/dfgqwy9io/images/upload", {
-        method: "post",
+      data.append("file", img1);
+      data.append("upload_preset", "srjresort");
+      data.append("cloud_name", "dfxoyzxlf");
+      fetch("https://api.cloudinary.com/v1_1/dfxoyzxlf/image/upload", {
+        method: "POST",
         body: data,
       })
         .then((res) => res.json())
         .then((data) => {
-          setimages(data.url.toString());
+          setImg1(data.url.toString());
           console.log(data.url.toString());
           // setPicLoading(false);
+          toast({
+            title: "Picture Uploaded",
+            description: "Uploaded Pic 1",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "bottom",
+          });
         })
         .catch((err) => {
           console.log(err);
@@ -59,7 +84,231 @@ const FormComponent = () => {
         });
     } else {
       toast({
-        title: "Please Select an images!",
+        title: "Please Select an Image!",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      // setPicLoading(false);
+      return;
+    }
+  };
+  const handleimagesUpload2 = async (img2) => {
+    // setPicLoading(true);
+    if (img2 === undefined) {
+      toast({
+        title: "Please Select an Image!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+      return;
+    }
+    // console.log(img2);
+    if (
+      img2.type === "image/jpeg" ||
+      img2.type === "image/png" ||
+      img2.type === "image/jpg"
+    ) {
+      const data = new FormData();
+      data.append("file", img2);
+      data.append("upload_preset", "srjresort");
+      data.append("cloud_name", "dfxoyzxlf");
+      fetch("https://api.cloudinary.com/v1_1/dfxoyzxlf/image/upload", {
+        method: "POST",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setImg2(data.url.toString());
+          console.log(data.url.toString());
+          // setPicLoading(false);
+          toast({
+            title: "Picture Uploaded",
+            description: "Uploaded Uploaded Pic 2",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "bottom",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          // setPicLoading(false);
+        });
+    } else {
+      toast({
+        title: "Please Select an Image!",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      // setPicLoading(false);
+      return;
+    }
+  };
+  const handleimagesUpload3 = async (img3) => {
+    // setPicLoading(true);
+    if (img3 === undefined) {
+      toast({
+        title: "Please Select an Image!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+      return;
+    }
+    // console.log(img3);
+    if (
+      img3.type === "image/jpeg" ||
+      img3.type === "image/png" ||
+      img3.type === "image/jpg"
+    ) {
+      const data = new FormData();
+      data.append("file", img3);
+      data.append("upload_preset", "srjresort");
+      data.append("cloud_name", "dfxoyzxlf");
+      fetch("https://api.cloudinary.com/v1_1/dfxoyzxlf/image/upload", {
+        method: "POST",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setImg3(data.url.toString());
+          console.log(data.url.toString());
+          // setPicLoading(false);
+          toast({
+            title: "Picture Uploaded",
+            description: "Uploaded Uploaded Pic 3",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "bottom",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          // setPicLoading(false);
+        });
+    } else {
+      toast({
+        title: "Please Select an Image!",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      // setPicLoading(false);
+      return;
+    }
+  };
+  const handleimagesUpload4 = async (img4) => {
+    // setPicLoading(true);
+    if (img4 === undefined) {
+      toast({
+        title: "Please Select an Image!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+      return;
+    }
+    // console.log(img4);
+    if (
+      img4.type === "image/jpeg" ||
+      img4.type === "image/png" ||
+      img4.type === "image/jpg"
+    ) {
+      const data = new FormData();
+      data.append("file", img4);
+      data.append("upload_preset", "srjresort");
+      data.append("cloud_name", "dfxoyzxlf");
+      fetch("https://api.cloudinary.com/v1_1/dfxoyzxlf/image/upload", {
+        method: "POST",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setImg4(data.url.toString());
+          console.log(data.url.toString());
+          // setPicLoading(false);
+          toast({
+            title: "Picture Uploaded",
+            description: "Uploaded Uploaded Pic 4",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "bottom",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          // setPicLoading(false);
+        });
+    } else {
+      toast({
+        title: "Please Select an Image!",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+      // setPicLoading(false);
+      return;
+    }
+  };
+  const handleimagesUpload5 = async (img5) => {
+    // setPicLoading(true);
+    if (img5 === undefined) {
+      toast({
+        title: "Please Select an Image!",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom-left",
+      });
+      return;
+    }
+    // console.log(img5);
+    if (
+      img5.type === "image/jpeg" ||
+      img5.type === "image/png" ||
+      img5.type === "image/jpg"
+    ) {
+      const data = new FormData();
+      data.append("file", img5);
+      data.append("upload_preset", "srjresort");
+      data.append("cloud_name", "dfxoyzxlf");
+      fetch("https://api.cloudinary.com/v1_1/dfxoyzxlf/image/upload", {
+        method: "POST",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setImg5(data.url.toString());
+          console.log(data.url.toString());
+          // setPicLoading(false);
+          toast({
+            title: "Picture Uploaded",
+            description: "Uploaded Uploaded Pic 5",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "bottom",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          // setPicLoading(false);
+        });
+    } else {
+      toast({
+        title: "Please Select an Image!",
         status: "warning",
         duration: 5000,
         isClosable: true,
@@ -102,13 +351,15 @@ const FormComponent = () => {
           "Content-type": "application/json",
         },
       };
-      
+      let images = [img1, img2, img3, img4, img5];
+      console.log("images: ", images);
+      // console.log("images: ", images);
       const { data } = await axios.post(
         "http://localhost:3001/blog/posts",
         { images, title, content, author },
         config
       );
-      // console.log(data, "hidata");
+      console.log(data, "hidata");
       toast({
         title: "Registration Successful",
         status: "success",
@@ -116,7 +367,6 @@ const FormComponent = () => {
         isClosable: true,
         position: "bottom",
       });
-     
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -126,7 +376,6 @@ const FormComponent = () => {
         isClosable: true,
         position: "bottom",
       });
-     
     }
   };
 
@@ -159,7 +408,7 @@ const FormComponent = () => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader>Create your Blog</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <form onSubmit={handleSubmit}>
@@ -168,28 +417,43 @@ const FormComponent = () => {
                 <Input
                   type="file"
                   accept="images/*"
-                  onChange={(e) => handleimagesUpload(e.target.files[0])}
+                  onChange={(e) => handleimagesUpload1(e.target.files[0])}
+                />
+                <Input
+                  type="file"
+                  accept="images/*"
+                  onChange={(e) => handleimagesUpload2(e.target.files[0])}
+                />
+                <Input
+                  type="file"
+                  accept="images/*"
+                  onChange={(e) => handleimagesUpload3(e.target.files[0])}
+                />
+                <Input
+                  type="file"
+                  accept="images/*"
+                  onChange={(e) => handleimagesUpload4(e.target.files[0])}
+                />
+                <Input
+                  type="file"
+                  accept="images/*"
+                  onChange={(e) => handleimagesUpload5(e.target.files[0])}
                 />
               </FormControl>
 
               <FormControl id="title" mt={4}>
-                <FormLabel>Blog title</FormLabel>
-                <Input
-                  type="text"
-                  value={title}
-                  onChange={handletitleChange}
-                />
+                <FormLabel>Blog Title</FormLabel>
+                <Input type="text" value={title} onChange={handletitleChange} />
               </FormControl>
 
               <FormControl id="content" mt={4}>
-                <FormLabel>content</FormLabel>
-                <ReactQuill
-                  value={content}
-                  onChange={handlecontentChange}
-                />
+                <FormLabel>Content</FormLabel>
+                <div style={{ width: "400px" }}>
+                  <ReactQuill value={content} onChange={handlecontentChange} />
+                </div>
               </FormControl>
 
-              <FormControl id="author" mt={4}>
+              <FormControl id="author" my={4}>
                 <FormLabel>Author</FormLabel>
                 <Input
                   type="text"
@@ -197,15 +461,17 @@ const FormComponent = () => {
                   onChange={handleAuthorChange}
                 />
               </FormControl>
-              <Button type="submit" mt={4} colorScheme="blue">
+              <Spacer />
+              <Button type="submit" mr={5} colorScheme="blue">
                 Submit
+              </Button>
+              <Button colorScheme="red" onClick={onClose}>
+                Cancel
               </Button>
             </form>
           </ModalBody>
 
-          <ModalFooter>
-            <Button onClick={onClose}>Cancel</Button>
-          </ModalFooter>
+          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>
