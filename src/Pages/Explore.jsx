@@ -11,6 +11,7 @@ import {
 import React from "react";
 import { Card, Image, CardBody, CardFooter } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import FormComponent from "../components/FormComponent";
 
 const Explore = () => {
   let blogs = [
@@ -77,11 +78,12 @@ const Explore = () => {
   ];
   return (
     <Box p={"15px"} w={"100%"}>
-  
-        <Text textAlign={"center"} fontSize={"50px"}>
-          Blogs
-        </Text>
-      
+      <Text textAlign={"center"} fontSize={"50px"}>
+        Blogs
+      </Text>
+      <Box w={"94%"} textAlign={"end"} >
+        <FormComponent />
+      </Box>
       <SimpleGrid my={"10"} px={"50px"} columns={4} spacing={4}>
         {blogs.map((blog, id) => (
           <Link to={`/explore/blog/${id}`} key={id}>
