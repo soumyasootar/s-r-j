@@ -14,22 +14,23 @@ import {
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
+
 const FormComponent = () => {
   const toast = useToast();
-  const [images, setimages] = useState();
-  const [title, settitle] = useState("");
-  const [content, setcontent] = useState("");
-  const [author, setauthor] = useState("");
+  const [image, setImage] = useState();
+  const [heading, setHeading] = useState("");
+  const [paragraphs, setParagraphs] = useState("");
+  const [authorName, setAuthorName] = useState("");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
-  const handleimagesUpload = (pics) => {
+  const handleImageUpload = (pics) => {
     if (pics === undefined) {
       toast({
-        title: "Please Select an images!",
+        title: "Please Select an Image!",
         status: "warning",
         duration: 5000,
         isClosable: true,
@@ -37,62 +38,57 @@ const FormComponent = () => {
       });
       return;
     }
-    console.log(pics);
-    if (pics.type === "images/jpeg" || pics.type === "images/png") {
+
+    if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const data = new FormData();
       data.append("file", pics);
       data.append("upload_preset", "chat-On");
       data.append("cloud_name", "dfgqwy9io");
-      fetch("https://api.cloudinary.com/v1_1/dfgqwy9io/images/upload", {
+      fetch("https://api.cloudinary.com/v1_1/dfgqwy9io/image/upload", {
         method: "post",
         body: data,
       })
         .then((res) => res.json())
         .then((data) => {
-          setimages(data.url.toString());
-          console.log(data.url.toString());
-          // setPicLoading(false);
+          setImage(data.url.toString());
         })
         .catch((err) => {
           console.log(err);
-          // setPicLoading(false);
         });
     } else {
       toast({
-        title: "Please Select an images!",
+        title: "Please Select an Image!",
         status: "warning",
         duration: 5000,
         isClosable: true,
         position: "bottom",
       });
-      // setPicLoading(false);
       return;
     }
   };
 
-  const handletitleChange = (event) => {
-    settitle(event.target.value);
+  const handleHeadingChange = (event) => {
+    setHeading(event.target.value);
   };
 
-  const handlecontentChange = (value) => {
-    setcontent(value);
+  const handleParagraphsChange = (value) => {
+    setParagraphs(value);
   };
+
   const handleAuthorChange = (event) => {
-    setauthor(event.target.value);
+    setAuthorName(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(author);
-    if (!title || !content) {
+    if (!heading || !paragraphs) {
       toast({
-        title: "Please Fill all the Feilds",
+        title: "Please Fill all the Fields",
         status: "warning",
         duration: 5000,
         isClosable: true,
         position: "bottom",
       });
-      // setPicLoading(false);
       return;
     }
 
@@ -102,13 +98,17 @@ const FormComponent = () => {
           "Content-type": "application/json",
         },
       };
-      
       const { data } = await axios.post(
-        "http://localhost:3001/blog/posts",
-        { images, title, content, author },
+        "/blog/posts",
+        {
+          image,
+          heading,
+          paragraphs,
+          authorName,
+        },
         config
       );
-      // console.log(data, "hidata");
+
       toast({
         title: "Registration Successful",
         status: "success",
@@ -116,17 +116,15 @@ const FormComponent = () => {
         isClosable: true,
         position: "bottom",
       });
-     
     } catch (error) {
       toast({
-        title: "Error Occured!",
+        title: "Error Occurred!",
         description: error.response.data.message,
         status: "error",
         duration: 5000,
         isClosable: true,
         position: "bottom",
       });
-     
     }
   };
 
@@ -138,7 +136,6 @@ const FormComponent = () => {
           background: "#FF2171",
           color: "#FFE4A7",
         }}
-        // FF0060
         bg={"#FF2171"}
         color={"#FFE4A7"}
         fontFamily={"'Shippori Antique B1', sans-serif"}
@@ -163,29 +160,29 @@ const FormComponent = () => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <form onSubmit={handleSubmit}>
-              <FormControl id="images">
-                <FormLabel>Upload images</FormLabel>
+              <FormControl id="image">
+                <FormLabel>Upload Image</FormLabel>
                 <Input
                   type="file"
-                  accept="images/*"
-                  onChange={(e) => handleimagesUpload(e.target.files[0])}
+                  accept="image/*"
+                  onChange={(e) => handleImageUpload(e.target.files[0])}
                 />
               </FormControl>
 
-              <FormControl id="title" mt={4}>
-                <FormLabel>Blog title</FormLabel>
+              <FormControl id="heading" mt={4}>
+                <FormLabel>Blog Heading</FormLabel>
                 <Input
                   type="text"
-                  value={title}
-                  onChange={handletitleChange}
+                  value={heading}
+                  onChange={handleHeadingChange}
                 />
               </FormControl>
 
-              <FormControl id="content" mt={4}>
-                <FormLabel>content</FormLabel>
+              <FormControl id="paragraphs" mt={4}>
+                <FormLabel>Paragraphs</FormLabel>
                 <ReactQuill
-                  value={content}
-                  onChange={handlecontentChange}
+                  value={paragraphs}
+                  onChange={handleParagraphsChange}
                 />
               </FormControl>
 
@@ -193,7 +190,7 @@ const FormComponent = () => {
                 <FormLabel>Author</FormLabel>
                 <Input
                   type="text"
-                  value={author}
+                  value={authorName}
                   onChange={handleAuthorChange}
                 />
               </FormControl>
