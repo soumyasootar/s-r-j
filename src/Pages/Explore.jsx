@@ -86,7 +86,7 @@ const Explore = () => {
       <SimpleGrid my={"10"} px={"50px"} columns={4} spacing={4}>
         {allblogs.map((blog) => (
           <Box key={blog._id}>
-            <Card maxW="85%" bg={"white"}>
+            <Card maxW="95%" bg={"white"}>
               <CardBody p="0" position={"relative"}>
                 <Image
                   src={blog.images[0]}
@@ -133,19 +133,22 @@ const Explore = () => {
                 <Text
                   fontFamily={"Inter, sans-serif;"}
                   color={"rgb(43, 43, 48)"}
+                  fontSize={"14px"}
                 >
                   {blog.content && blog.content.length > 100
                     ? parse(blog.content.slice(0, 100) + "...")
                     : parse(blog.content)}
                   <Link to={`/explore/blog/${blog._id}`} key={blog._id}>
-                    <Text as="span" color="blue.500" ml={1}>
-                      Read more
+                    <Text as="span" color="blue.500" >
+                     <span style={{textDecoration : "underline"}}>Read more</span> 
                     </Text>
                   </Link>
                 </Text>
+                  <Box mt={5}>
 
-                <Text fontFamily={"'Shippori Antique B1', sans-serif"} fontSize={"12px"}>Author : {blog.author}</Text>
-                <Text fontFamily={"'Shippori Antique B1', sans-serif"} fontSize={"12px"}>CreatedAt : {formatCreatedAt(blog.createdAt)}</Text>
+                <Text fontFamily={"'Shippori Antique B1', sans-serif"} fontSize={"12px"} color={"#526D82"}>Author : {blog.author}</Text>
+                <Text fontFamily={"'Shippori Antique B1', sans-serif"} fontSize={"12px"} color={"#526D82"}>CreatedAt : {formatCreatedAt(blog.createdAt)}</Text>
+                  </Box>
               </CardFooter>
             </Card>
           </Box>
