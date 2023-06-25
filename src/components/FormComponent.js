@@ -341,7 +341,7 @@ const FormComponent = () => {
         isClosable: true,
         position: "bottom",
       });
-      // setPicLoading(false);
+      
       return;
     }
 
@@ -361,7 +361,7 @@ const FormComponent = () => {
       );
       console.log(data, "hidata");
       toast({
-        title: "Registration Successful",
+        title: "Your blog uploaded succesfully",
         status: "success",
         duration: 5000,
         isClosable: true,
