@@ -47,6 +47,20 @@ const Explore = () => {
       });
   };
 
+  const handleEditBlog = (id, updatedData) => {
+    console.log(id, "blog id");
+    axios
+      .put(`http://localhost:3001/blog/posts/${id}`, updatedData)
+      .then((response) => {
+        console.log("Blog updated successfully");
+        fetchData();
+      })
+      .catch((error) => {
+        console.error("Error updating blog:", error);
+      });
+  };
+
+
   const formatCreatedAt = (createdAt) => {
     const date = new Date(createdAt);
     const formattedDate = date.toLocaleString("en-US", {
@@ -100,6 +114,7 @@ const Explore = () => {
                       colorScheme="blue"
                       aria-label="Edit"
                       icon={<EditIcon />}
+                      onClick={() => handleEditBlog(blog._id)}
                     />
                   </Box>
                 </Flex>
