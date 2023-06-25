@@ -103,7 +103,7 @@ const Explore = () => {
                 >
                   <Box>
                     <IconButton
-                      colorScheme="blue"
+                      colorScheme="red"
                       aria-label="Delete"
                       icon={<DeleteIcon />}
                       onClick={() => deleteBlog(blog._id)}
