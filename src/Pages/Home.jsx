@@ -78,8 +78,8 @@ const Home = () => {
             fontSize={{ base: "9xl", md: "9xl", lg: "8xl" }}
             top={""}
           >
-            {" "}
-            We Welcome You All To <br />{" "}
+           
+            We Welcome You All To <br />
             <span style={{ color: "#F96E1E", textShadow: "unset" }}>
               Sarita Resorts.
             </span>

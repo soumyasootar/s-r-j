@@ -1,22 +1,55 @@
-import {
-  Box,
-  Heading,
- 
-  Text,
-} from "@chakra-ui/react";
-import React from "react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { useParams } from "react-router-dom";
 import "./individualBlog.css";
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"></link>
+import axios from "axios";
+import parse from "html-react-parser";
+<link
+  href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap"
+  rel="stylesheet"
+></link>;
 
 const IndividualBlog = () => {
   let { id } = useParams();
+  let [state, setState] = useState({
+    images: [],
+    title: "",
+    content: "",
+    author: "",
+    createdAt: "",
+  });
+  useEffect(() => {
+    fetchSingleBlog();
+  }, []);
+  const fetchSingleBlog = () => {
+    axios
+      .get(`http://localhost:3001/blog/posts/${id}`)
+      .then((response) => {
+        setState(response.data);
+        console.log(response.data, "responceData");
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+  const formatCreatedAt = (createdAt) => {
+    const date = new Date(createdAt);
+    const formattedDate = date.toLocaleString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    return formattedDate.replace(",", "  ");
+  };
 
+  console.log(id, "individualID");
   console.log(id);
   return (
-    <Box h={{sm: "100vh", md: "100vh", lg: "auto" }}>
+    <Box h={{ sm: "100vh", md: "100vh", lg: "auto" }}>
       <Box
         bg={"white"}
         borderRadius={"xl"}
@@ -24,31 +57,33 @@ const IndividualBlog = () => {
         margin={"auto"}
         my="100px"
         width={["90%", "80%"]} // Adjust the width for mobile and desktop views
-             >
-        <Carousel  showThumbs={false} showStatus={false} autoPlay={true} interval={2000}  infiniteLoop={true}>
-          <div>
-            <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/12/blog-examples-1.webp" />
-          </div>
-          <div>
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" />
-          </div>
-          <div>
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" />
-          </div>
+      >
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          autoPlay={true}
+          interval={2000}
+          infiniteLoop={true}
+        >
+          {state.images.map((image, index) => (
+            <div key={index}>
+              <img src={image} alt="img" />
+            </div>
+          ))}
         </Carousel>
-        <Heading fontFamily={ "Comfortaa, cursive"} my="30"> <span style={{ color: "red" }}  >M</span>odern Premise in the Heritage town of Jajpur</Heading>
-        <Text>
-          From the very beginning, Sarita Resort was established with a vision
-          to promote Jajpur tourism. The town of Jajpur that is known as Biraja
-          Khetra from time immemorial has a trail of almost 3000 years of
-          history. Presently, the region flourishes as a major commercial center
-          under steel giants like TATA, Jindal, MESCO, IDCOL etc. It is one of
-          the most developed districts of Odisha that also preserves the
-          authentic pre-colonial culture of India in its roots. In midst of all
-          these, we are here to strike a beautiful balance between the two
-          worlds and provide all our guests a beautiful experience of our
-          heritage town, Jajpur.
-        </Text>
+        <Heading fontFamily={"Comfortaa, cursive"} my="30">
+          <span className="first-letter">{state.title.charAt(0)}</span>
+          {state.title.slice(1)}
+        </Heading>
+        <Text fontFamily={"'Salsa', cursive"}>{parse(state.content)}</Text>
+        <Flex mt={5} justifyContent={"space-between"}>
+          <Box>
+            <Text fontFamily={"sans-serif"}>Author : {state.author}</Text>
+          </Box>
+          <Box>
+            <Text fontFamily={"sans-serif"}>CreatedAt : {formatCreatedAt(state.createdAt)}</Text>
+          </Box>
+        </Flex>
       </Box>
     </Box>
   );
