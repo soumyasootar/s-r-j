@@ -11,6 +11,7 @@ import { Card, Image, CardBody, CardFooter } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import FormComponent from "../components/FormComponent";
 import axios from "axios";
+import parse from 'html-react-parser';
 
 const Explore = () => {
   const [allblogs, setAllblogs] = useState([]);
@@ -77,8 +78,8 @@ const Explore = () => {
                 </Heading>
                 <Text fontFamily={"Inter, sans-serif;"} color={"rgb(43, 43, 48)"}>
                   {blog.content && blog.content.length > 100
-                    ? blog.content.slice(0, 100) + "..."
-                    : blog.content}
+                    ? parse(blog.content.slice(0, 100) + "...")
+                    : parse(blog.content)}
                   <Link to={`/explore/blog/${id}`}>
                     <Text as="span" color="blue.500" ml={1}>
                       Read more
