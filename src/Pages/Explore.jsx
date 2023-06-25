@@ -68,7 +68,7 @@ const Explore = () => {
               <CardFooter pl="2" display={"flex"} flexDirection={"column"}>
                 <Heading
                   size="md"
-                  fontFamily={"var(--font-family-primary)"}
+                  fontFamily={"'Shippori Antique B1', sans-serif"} 
                   color={"rgb(0, 116, 117)"}
                   mb="2"
                   fontSize={"20px"}
