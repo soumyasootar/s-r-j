@@ -78,10 +78,10 @@ const IndividualBlog = () => {
         <Text fontFamily={"'Salsa', cursive"}>{parse(state.content)}</Text>
         <Flex mt={5} justifyContent={"space-between"}>
           <Box>
-            <Text fontFamily={"sans-serif"}>Author : {state.author}</Text>
+            <Text fontFamily={"sans-serif"}  color={"#526D82"}>Author : {state.author}</Text>
           </Box>
           <Box>
-            <Text fontFamily={"sans-serif"}>CreatedAt : {formatCreatedAt(state.createdAt)}</Text>
+            <Text color={"#526D82"} fontFamily={"sans-serif"}>CreatedAt : {formatCreatedAt(state.createdAt)}</Text>
           </Box>
         </Flex>
       </Box>
