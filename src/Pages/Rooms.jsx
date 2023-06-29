@@ -1,8 +1,6 @@
 import {
-  Box,
   Button,
   Container,
-  Flex,
   Heading,
   Image,
   Spacer,
@@ -16,11 +14,12 @@ import { Link } from "react-router-dom";
 const roomsArray = [
   {
     id: 1,
+    price: 599,
     images: [
+      "https://cdn1.goibibo.com/voy_ing/t_fs/02de7bec1ea011ecba1d0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/db28d390be0f11ebad1b0242ac110005.jfif",
-      "https://cdn1.goibibo.com/voy_ing/t_fs/02de7bec1ea011ecba1d0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/eae685fe204611eca6ae0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/ea141c36204611ecac720a58a9feac02.jpg",
     ],
@@ -30,14 +29,14 @@ const roomsArray = [
   },
   {
     id: 2,
+    price: 699,
     images: [
-      "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
-      "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/db28d390be0f11ebad1b0242ac110005.jfif",
+      "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
+      "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/02de7bec1ea011ecba1d0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/eae685fe204611eca6ae0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/ea141c36204611ecac720a58a9feac02.jpg",
-
     ],
     name: "Economical Double Room",
     description:
@@ -45,6 +44,7 @@ const roomsArray = [
   },
   {
     id: 3,
+    price: 799,
     images: [
       "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
@@ -59,13 +59,12 @@ const roomsArray = [
   },
   {
     id: 4,
+    price: 899,
     images: [
-      "https://cdn1.goibibo.com/voy_ing/t_fs/597459ac1e9d11eca5b40a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/bb63790e204611eca6050a58a9feac02.jpg",
       "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201704231808567326-242972-62888cb61e9d11eca4f70a58a9feac02.jpg",
+      "https://cdn1.goibibo.com/voy_ing/t_fs/597459ac1e9d11eca5b40a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/bc7af268204611eca7e40a58a9feac02.jpg",
-
-
     ],
     name: "Executive Suite",
     description:
@@ -73,41 +72,45 @@ const roomsArray = [
   },
 ];
 
-const RoomComponent = ({ id, images, name, description }) => {
+const RoomComponent = ({ id, images, name, description,price }) => {
   console.log("images: ", images);
   return (
     <>
       <Stack
         direction={{ md: "column", lg: "row" }}
-        w={"100%"}
+        w={"-moz-fit-content"}
         position={"relative"}
         my={"10"}
         borderRadius={"2xl"}
+        // bg={"rebeccapurple"}
       >
         <Image
           src={images[0]}
           borderRadius={"2xl"}
           objectFit={"cover"}
-          w={{ md: "", lg: "60vw" }}
+          w={{ md: "", lg: "70vw" }}
           h={{ md: "", lg: "40vw" }}
         />
         <VStack
           top={"20%"}
           left={"40%"}
-          bg={"white"}
+          // bg={"white"}
+          bg={"#DBB68F"}
           p={"8"}
           w={{ md: "", lg: "30%" }}
           alignItems={"start"}
           borderRadius={"2xl"}
-          // pos={"absolute"}
+          color={"#07111D"}
         >
-          <Heading color={"#1C100A"}>{name}</Heading>
-          <Text>{description}</Text>
+          <Heading color={"#1C100A"} fontSize={"5xl"} fontFamily={"'Great Vibes', cursive"}>
+            {name}
+          </Heading>
+          <Text fontFamily={"'Poppins', sans-serif"} fontWeight={"300"}>{description}</Text>
           {/* <Text fontSize={"3xl"} color={"#90461B"} >Starts from ₹599</Text> */}
           <Spacer />
           <Link to={`/rooms/1234`}>
             <Button colorScheme="orange" alignSelf={"flex-end"}>
-              Book Now @ ₹599 /-
+              Book Now @ ₹{price} /-
             </Button>
           </Link>
         </VStack>
@@ -121,20 +124,31 @@ const Rooms = () => {
     <Container
       maxW="full"
       // height={"100vh"}
-      bg={"black"}
       p={10}
       mb={10}
-      style={{
-        background: "rgba( 255, 255, 255, 0.25 )",
-        boxShadow: "0 8px 16px 0 rgba( 31, 38, 135, 0.37 )",
-        backdropFilter: "blur( 8px )",
-        WebkitBackdropFilter: "blur( 8px )",
-        borderRadius: "10px",
-        border: "1px solid rgba( 255, 255, 255, 0.18 )",
-      }}
+      // style={{
+      //   background: "E6EFE9",
+      //   boxShadow: "0 8px 16px 0 rgba( 31, 38, 135, 0.37 )",
+      //   backdropFilter: "blur( 8px )",
+      //   WebkitBackdropFilter: "blur( 8px )",
+      //   borderRadius: "10px",
+      //   border: "1px solid rgba( 255, 255, 255, 0.18 )",
+      // }}
+      bg={"#E6EFE9"}
       // p={50}
     >
-      <Heading size={"4xl"}>Explore Rooms</Heading>
+      <Heading
+        fontSize={"7xl"}
+        fontWeight={"medium"}
+        color={"blackAlpha.800"}
+        style={{
+          textShadow:
+            "0px 0px 0 #FA7E37, 1px 1px 0 #FA7E37, 1px 1px 0 #FA7E37, 1px 1px 0 #FA7E37",
+        }}
+        fontFamily={"'Carter One', cursive;"}
+      >
+        Explore Rooms
+      </Heading>
       <br />
       {roomsArray.map((room) => (
         <RoomComponent
@@ -142,6 +156,7 @@ const Rooms = () => {
           name={room.name}
           description={room.description}
           images={room.images}
+          price={room.price}
         />
       ))}
     </Container>

@@ -49,7 +49,7 @@ const Navbar = () => {
           <Spacer />
           <Link href="/rooms">Room</Link>
           <Spacer />
-          <Link href="/explore">Explore Jajpur</Link>
+          <Link href="/explore" fontFamily={"'Kaushan Script', cursive"}>Explore Jajpur</Link>
           <Spacer />
           <Link href="/contact">Contact</Link>
           <Spacer />
@@ -138,8 +138,9 @@ const Navbar = () => {
                     w={"100%"}
                     p={"4"}
                     textAlign={"center"}
+                    fontFamily={"'Kaushan Script', cursive"}
                   >
-                    EXPLORE JAJPUR
+                    Explore Jajpur
                   </Box>
                 </Link>
 
