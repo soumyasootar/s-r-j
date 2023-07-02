@@ -56,10 +56,10 @@ const Navbar = () => {
           <Spacer />
           <Link href="/contact">Contact</Link>
           <Spacer />
-          <Button onClick={toggleColorMode}>
+          {/* <Button onClick={toggleColorMode}>
             {colorMode === "light" ? "☀️" : "🌙"}
           </Button>
-          <Spacer />
+          <Spacer /> */}
         </Stack>
         <>
           <Button
@@ -91,7 +91,7 @@ const Navbar = () => {
             <DrawerHeader borderBottomWidth="1px">
               Welcome to Sarita Resorts ✨
             </DrawerHeader>
-            <DrawerBody bg={"#F9B872"}>
+            <DrawerBody color={"white"}>
               <VStack
                 margin={"auto"}
                 alignItems={"center"}
@@ -101,7 +101,7 @@ const Navbar = () => {
                 <Link href="/" width={"100%"}>
                   <Box
                     bg={"orange.600"}
-                    borderRadius={"2xl"}
+                    borderRadius={"xl"}
                     w={"100%"}
                     p={"4"}
                     textAlign={"center"}
@@ -113,7 +113,7 @@ const Navbar = () => {
                 <Link href="/about" width={"100%"}>
                   <Box
                     bg={"orange.600"}
-                    borderRadius={"2xl"}
+                    borderRadius={"xl"}
                     w={"100%"}
                     p={"4"}
                     textAlign={"center"}
@@ -125,7 +125,7 @@ const Navbar = () => {
                 <Link href="/rooms" width={"100%"}>
                   <Box
                     bg={"orange.600"}
-                    borderRadius={"2xl"}
+                    borderRadius={"xl"}
                     w={"100%"}
                     p={"4"}
                     textAlign={"center"}
@@ -137,7 +137,7 @@ const Navbar = () => {
                 <Link href="/explore" width={"100%"}>
                   <Box
                     bg={"orange.600"}
-                    borderRadius={"2xl"}
+                    borderRadius={"xl"}
                     w={"100%"}
                     p={"4"}
                     textAlign={"center"}
@@ -150,7 +150,7 @@ const Navbar = () => {
                 <Link href="/contact" width={"100%"}>
                   <Box
                     bg={"orange.600"}
-                    borderRadius={"2xl"}
+                    borderRadius={"xl"}
                     w={"100%"}
                     p={"4"}
                     textAlign={"center"}
@@ -159,9 +159,9 @@ const Navbar = () => {
                   </Box>
                 </Link>
 
-                <Box
+                {/* <Box
                   bg={"orange.600"}
-                  borderRadius={"2xl"}
+                  borderRadius={"xl"}
                   w={"100%"}
                   p={"4"}
                   textAlign={"center"}
@@ -169,7 +169,7 @@ const Navbar = () => {
                   <Button onClick={toggleColorMode} bg={"transparent"}>
                     {colorMode === "light" ? "☀️" : "🌙"}
                   </Button>
-                </Box>
+                </Box> */}
               </VStack>
             </DrawerBody>
           </DrawerContent>

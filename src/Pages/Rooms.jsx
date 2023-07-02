@@ -160,7 +160,7 @@ const Rooms = () => {
       </Heading>
       <br />
       {roomsArray.map((room) => (
-        <RoomComponent
+        <RoomComponent key={room.id}
           id={room.id}
           name={room.name}
           description={room.description}

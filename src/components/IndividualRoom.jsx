@@ -14,16 +14,41 @@ import {
   Tr,
   Td,
   Heading,
+  Stack,
+  Center,
+  Spacer,
+  useColorMode,
+  Input,
 } from "@chakra-ui/react";
+import {
+  BsFillKeyFill,
+  BsWifi,
+  BsFan,
+  BsFillLampFill,
+  BsFillCreditCardFill,
+  BsReception3,
+  BsQrCodeScan,
+} from "react-icons/bs";
+import { GrCafeteria } from "react-icons/gr";
+import { IoMdCafe, IoMdBed } from "react-icons/io";
+import {
+  MdShower,
+  MdRestoreFromTrash,
+  MdOutlineLocalParking,
+  MdOutlineBathtub,
+  MdOtherHouses,
+  MdLocalLaundryService,
+} from "react-icons/md";
+import { GiAtSea } from "react-icons/gi";
+import { FaGlassWhiskey } from "react-icons/fa";
+import { BiArea } from "react-icons/bi";
+import { ArrowForwardIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-import { Gallery } from "react-grid-gallery";
-
-import { BsWifi } from "react-icons/bs";
 import { FaWater } from "react-icons/fa";
 import { MdRoomService } from "react-icons/md";
 import { AiFillCreditCard } from "react-icons/ai";
 import { BiShower } from "react-icons/bi";
-import FormComponent from "./FormComponent";
+// import FormComponent from "./FormComponent";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
@@ -88,39 +113,14 @@ const roomsArray = [
   },
 ];
 
-const images = [
-  {
-    src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-    width: 320,
-    height: 174,
-    //  isSelected: true,
-    caption: "After Rain (Jeshu John - designerspics.com)",
-  },
-  {
-    src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-    width: 320,
-    height: 212,
-    tags: [
-      { value: "Ocean", title: "Ocean" },
-      { value: "People", title: "People" },
-    ],
-    alt: "Boats (Jeshu John - designerspics.com)",
-  },
-
-  {
-    src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-    width: 320,
-    height: 212,
-  },
-];
-
 const IndividualRoom = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   let { id } = useParams();
   const [room, setRoom] = useState(roomsArray[id - 1]);
-  console.log("room: ", room);
   return (
-    <Box p={10}>
-      <Flex gap="5px">
+    <Box p={5}>
+      {/* images start  */}
+      <Flex gap="5px" justifyContent={"center"}>
         <Box>
           <Image
             src={room.images[0]}
@@ -147,11 +147,145 @@ const IndividualRoom = () => {
           />
         </Box>
       </Flex>
-      <Heading>{room.name}</Heading>
-      <HStack>
+      {/* images end */}
 
-      <Amenities />
-      <CheckinCheckout />
+      <Flex gap="30px" mx={"36"}>
+        {/* name and description  */}
+        <Box w="55%" mb="20">
+          <Heading color="#f15824" mt="10px">
+            {room.name}
+          </Heading>
+          <Text mt="5px">{room.description}</Text>
+        </Box>
+        {/* ammentites */}
+        <Box>
+          <Heading mt="10px" fontSize="3xl" mb="20px">
+            Amenities
+          </Heading>
+          <Flex gap="50px">
+            <Box>
+              <HStack mb="8px">
+                <BsFillKeyFill />
+                <Text fontSize="1xl">Lockers</Text>
+              </HStack>
+              <HStack mb="8px">
+                <BsWifi />
+                <Text fontSize="1xl">Free Wi-Fi</Text>
+              </HStack>
+              <HStack mb="8px">
+                <BsFan />
+                <Text fontSize="1xl">Air-Conditioning</Text>
+              </HStack>
+              <HStack mb="8px">
+                <GrCafeteria />
+                <Text fontSize="1xl">Cafe</Text>
+              </HStack>
+              <HStack mb="8px">
+                <IoMdCafe />
+                <Text fontSize="1xl">Breakfast (Extra)</Text>
+              </HStack>
+              <HStack mb="8px">
+                <IoMdBed />
+                <Text fontSize="1xl">Linen Included</Text>
+              </HStack>
+              <HStack mb="8px">
+                <MdOutlineLocalParking />
+                <Text fontSize="1xl">Parking</Text>
+              </HStack>
+            </Box>
+            <Box>
+              <HStack mb="8px">
+                <MdOutlineBathtub />
+                <Text fontSize="1xl">Hot Water</Text>
+              </HStack>
+              <HStack mb="8px">
+                <BsFillCreditCardFill />
+                <Text fontSize="1xl">Card Payment Accepted</Text>
+              </HStack>
+              <HStack mb="8px">
+                <BsReception3 />
+                <Text fontSize="1xl">24/7 Reception</Text>
+              </HStack>
+              <HStack mb="8px">
+                <MdOtherHouses />
+                <Text fontSize="1xl">In-house Activities</Text>
+              </HStack>
+              <HStack mb="8px">
+                <GiAtSea />
+                <Text fontSize="1xl">Sea-View</Text>
+              </HStack>
+              <HStack mb="8px">
+                <BsQrCodeScan />
+                <Text fontSize="1xl">UPI PAyment Accepted</Text>
+              </HStack>
+            </Box>
+
+            <Box>
+              <HStack mb="8px">
+                <MdLocalLaundryService />
+                <Text fontSize="1xl">Laundry Services (Extra)</Text>
+              </HStack>
+              <HStack mb="8px">
+                <FaGlassWhiskey />
+                <Text fontSize="1xl">Water Dispenser</Text>
+              </HStack>
+              <HStack mb="8px">
+                <BiArea />
+                <Text fontSize="1xl">Common Hangout Area</Text>
+              </HStack>
+              <HStack mb="8px">
+                <BsFillLampFill />
+                <Text fontSize="1xl">Bedside Lamp</Text>
+              </HStack>
+              <HStack mb="8px">
+                <MdRestoreFromTrash />
+                <Text fontSize="1xl">Storage Facilities</Text>
+              </HStack>
+              <HStack mb="8px">
+                <MdShower />
+                <Text fontSize="1xl">Shower</Text>
+              </HStack>
+            </Box>
+          </Flex>
+        </Box>
+        {/* ammentites */}
+      </Flex>
+      <HStack mx={"36"} p="5" my={10} style={{
+              background: "#FA8745",
+              boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+              backdropFilter: "blur( 12.5px )",
+              WebkitBackdropFilter: "blur( 12.5px )",
+              borderRadius: "10px",
+              border: "1px solid rgba( 255, 255, 255, 0.18 )",
+            }}>
+        <VStack mb="5">
+          <Text
+            as={"h3"}
+            fontSize="40px"
+            fontWeight="700"
+            color={colorMode === "light" ? "black" : "white"}
+          >
+            Book your stay
+          </Text>
+        </VStack>
+        <Spacer />
+        <HStack w={"450px"}>
+          <Select placeholder="Persons" fontSize="sm" bg="white" color={"black"}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </Select>
+          <HStack
+            borderRadius="10"
+            bg="white"
+            boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+          >
+            <Input type="date" border="none" color={"black"} />
+            <ArrowForwardIcon color={"black"} />
+            <Input type="date" border="none" color={"black"} />
+          </HStack>
+        </HStack>
       </HStack>
     </Box>
   );
@@ -159,171 +293,4 @@ const IndividualRoom = () => {
 
 export default IndividualRoom;
 
-const ImageComponent = () => {
-  return (
-    <Flex>
-      <Image
-        src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg"
-        h={"340px"}
-        mr={4}
-      />
 
-      <Box>
-        <Image
-          src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg"
-          h={"108px"}
-          mb={2}
-        />
-        <Image
-          src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg"
-          h={"108px"}
-          mb={2}
-        />
-        <Image
-          src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg"
-          h={"108px"}
-        />
-      </Box>
-    </Flex>
-  );
-};
-const PayBillButton = () => {
-  return (
-    <>
-     
-    </>
-  );
-};
-// box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-const CheckinCheckout = () => {
-  return (
-    <>
-      <Box
-        m={"auto"}
-        w={"30%"}
-        bg={"white"}
-        borderRadius={"15px"}
-        boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
-      >
-        <Flex bg={"white"} w={"100%"} justifyContent={"space-between"}>
-          <VStack
-            bg={"white"}
-            h={"100px"}
-            borderRadius={"5px"}
-            pl={"5px"}
-            pr={"5px"}
-            justifyContent={"space-around"}
-          >
-            <Flex>
-              <span style={{ paddingRight: "12px" }}>Check In</span>
-              <input
-                type="date"
-                id="start"
-                name="trip-start"
-                value="2018-07-22"
-                min="2018-01-01"
-                max="2018-12-31"
-              />
-            </Flex>
-
-            <Flex>
-              <span style={{ paddingRight: "12px" }}>Check Out</span>
-              <input
-                type="date"
-                id="start"
-                name="trip-start"
-                value="2018-07-22"
-                min="2018-01-01"
-                max="2018-12-31"
-              />
-            </Flex>
-          </VStack>
-          <VStack>
-            <Flex alignItems={"center"}>
-              <span style={{ paddingRight: "12px" }}>Person</span>
-              <Select placeholder="Select option">
-                <option value="option1">1</option>
-                <option value="option2">2</option>
-                <option value="option3">3</option>
-                <option value="option3">4</option>
-                <option value="option3">5</option>
-              </Select>
-            </Flex>
-        <Button >
-        Pay Bill
-      </Button>
-          </VStack>
-          
-        </Flex>
-      </Box>
-      <PayBillButton />
-    </>
-  );
-};
-
-const Amenities = () => {
-  return (
-    <>
-      <Table variant="unstyled" w={"40%"}>
-        <Tbody>
-          <Tr>
-            <Td>
-              <Flex alignItems={"center"}>
-                <Icon boxSize={"20px"} as={BsWifi} mr={"5px"} color="black" />
-                <Text as={"span"} color="black">
-                  Free Wi-Fi
-                </Text>
-              </Flex>
-            </Td>
-            <Td>
-              <Flex alignItems={"center"}>
-                <Icon boxSize={"20px"} as={FaWater} mr={"5px"} color="black" />
-                <Text as={"span"} color="black">
-                  Hot water
-                </Text>
-              </Flex>
-            </Td>
-            <Td>
-              <Flex alignItems={"center"}>
-                <Icon
-                  boxSize={"20px"}
-                  as={MdRoomService}
-                  mr={"5px"}
-                  color="black"
-                />
-                <Text as={"span"} color="black">
-                  24/7 Reception
-                </Text>
-              </Flex>
-            </Td>
-          </Tr>
-          <Tr>
-            <Td>
-              <Flex alignItems={"center"}>
-                <Icon
-                  boxSize={"20px"}
-                  as={AiFillCreditCard}
-                  mr={"5px"}
-                  color="black"
-                />
-                <Text as={"span"} color="black">
-                  Card Payment Accepted
-                </Text>
-              </Flex>
-            </Td>
-            <Td>
-              <Flex alignItems={"center"}>
-                <Icon boxSize={"20px"} as={BiShower} mr={"5px"} color="black" />
-                <Text as={"span"} color="black">
-                  Shower
-                </Text>
-              </Flex>
-            </Td>
-            <Td>{/* Add another icon here */}</Td>
-          </Tr>
-          <Tr>{/* Add icons for the third row here */}</Tr>
-        </Tbody>
-      </Table>
-    </>
-  );
-};
