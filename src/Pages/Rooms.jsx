@@ -31,9 +31,9 @@ const roomsArray = [
     id: 2,
     price: 699,
     images: [
-      "https://cdn1.goibibo.com/voy_ing/t_fs/db28d390be0f11ebad1b0242ac110005.jfif",
-      "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
+      "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
+      "https://cdn1.goibibo.com/voy_ing/t_fs/db28d390be0f11ebad1b0242ac110005.jfif",
       "https://cdn1.goibibo.com/voy_ing/t_fs/02de7bec1ea011ecba1d0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/eae685fe204611eca6ae0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/ea141c36204611ecac720a58a9feac02.jpg",
@@ -72,8 +72,7 @@ const roomsArray = [
   },
 ];
 
-const RoomComponent = ({ id, images, name, description,price }) => {
-  console.log("images: ", images);
+const RoomComponent = ({ id, images, name, description, price }) => {
   return (
     <>
       <Stack
@@ -102,14 +101,24 @@ const RoomComponent = ({ id, images, name, description,price }) => {
           borderRadius={"2xl"}
           color={"#07111D"}
         >
-          <Heading color={"#1C100A"} fontSize={"5xl"} fontFamily={"'Great Vibes', cursive"}>
+          <Heading
+            color={"#1C100A"}
+            fontSize={"5xl"}
+            fontFamily={"'Great Vibes', cursive"}
+          >
             {name}
           </Heading>
-          <Text fontFamily={"'Poppins', sans-serif"} fontWeight={"300"}>{description}</Text>
+          <Text fontFamily={"'Poppins', sans-serif"} fontWeight={"300"}>
+            {description}
+          </Text>
           {/* <Text fontSize={"3xl"} color={"#90461B"} >Starts from ₹599</Text> */}
           <Spacer />
-          <Link to={`/rooms/1234`}>
-            <Button colorScheme="orange" alignSelf={"flex-end"}>
+          <Link to={`/rooms/${id}`}>
+            <Button
+              colorScheme="orange"
+              fontFamily={"'Diphylleia', serif"}
+              alignSelf={"flex-end"}
+            >
               Book Now @ ₹{price} /-
             </Button>
           </Link>

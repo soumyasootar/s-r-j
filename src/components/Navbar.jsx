@@ -34,7 +34,10 @@ const Navbar = () => {
         top={"0"}
         zIndex={"overlay"}
       >
+      <Link href="/">
+
         <Image src={logo} w={{ md: "250px", lg: "120px" }} />
+      </Link>
         <Spacer />
         <Stack
           direction="row"
