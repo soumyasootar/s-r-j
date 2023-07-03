@@ -25,7 +25,7 @@ const Explore = () => {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:3001/blog/posts")
+      .get("https://srj-back-end.vercel.app/blog/posts")
       .then((response) => {
         setAllblogs(response.data);
       })
@@ -36,7 +36,7 @@ const Explore = () => {
 
   const deleteBlog = (id) => {
     axios
-      .delete(`http://localhost:3001/blog/posts/${id}`)
+      .delete(`https://srj-back-end.vercel.app/blog/posts/${id}`)
       .then((response) => {
         console.log("Blog deleted successfully");
         // Update the state or refetch data to reflect the changes
@@ -50,7 +50,7 @@ const Explore = () => {
   const handleEditBlog = (id, updatedData) => {
     console.log(id, "blog id");
     axios
-      .put(`http://localhost:3001/blog/posts/${id}`, updatedData)
+      .put(`https://srj-back-end.vercel.app/blog/posts/${id}`, updatedData)
       .then((response) => {
         console.log("Blog updated successfully");
         fetchData();

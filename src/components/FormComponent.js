@@ -355,7 +355,7 @@ const FormComponent = () => {
       console.log("images: ", images);
       // console.log("images: ", images);
       const { data } = await axios.post(
-        "http://localhost:3001/blog/posts",
+        "https://srj-back-end.vercel.app/blog/posts",
         { images, title, content, author },
         config
       );

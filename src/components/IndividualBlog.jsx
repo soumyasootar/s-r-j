@@ -25,7 +25,7 @@ const IndividualBlog = () => {
   }, []);
   const fetchSingleBlog = () => {
     axios
-      .get(`http://localhost:3001/blog/posts/${id}`)
+      .get(`https://srj-back-end.vercel.app/blog/posts/${id}`)
       .then((response) => {
         setState(response.data);
         console.log(response.data, "responceData");
