@@ -49,13 +49,16 @@ const IndividualBlog = () => {
   console.log(id, "individualID");
   console.log(id);
   return (
-    <Box h={{ sm: "100vh", md: "100vh", lg: "auto" }}>
+    <Box >
       <Box
         bg={"white"}
         borderRadius={"xl"}
-        p={"20px"}
+        p={"10"}
         margin={"auto"}
+        bgImage={"https://static.vecteezy.com/system/resources/thumbnails/002/957/705/small/light-orange-background-with-circles-vector.jpg"}
         my="100px"
+        bgRepeat={"no-repeat"}
+        bgSize={"cover"}
         width={["90%", "80%"]} // Adjust the width for mobile and desktop views
       >
         <Carousel

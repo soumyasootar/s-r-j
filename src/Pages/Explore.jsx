@@ -94,7 +94,7 @@ const Explore = () => {
                   borderRadius="5px 5px 0px 0px"
                   mb={2}
                 />
-                <Flex
+                {/* <Flex
                   position={"absolute"}
                   top={0}
                   right={0}
@@ -117,7 +117,7 @@ const Explore = () => {
                       onClick={() => handleEditBlog(blog._id)}
                     />
                   </Box>
-                </Flex>
+                </Flex> */}
               </CardBody>
 
               <CardFooter pl="2" display={"flex"} flexDirection={"column"}>

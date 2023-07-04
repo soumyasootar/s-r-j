@@ -25,7 +25,7 @@ import {
   MdFacebook,
   MdOutlineEmail,
 } from 'react-icons/md';
-import { BsGithub, BsDiscord, BsPerson } from 'react-icons/bs';
+import { BsWhatsapp, BsDiscord, BsPerson } from 'react-icons/bs';
 import Map from './Map';
 const Contact = () => {
   return (
@@ -65,7 +65,7 @@ const Contact = () => {
                         color="#DCE2FF"
                         _hover={{ border: '2px solid #1C6FEB' }}
                         leftIcon={<MdEmail color="#1970F1" size="20px" />}>
-                        hello@abc.com
+                        saritaresort@gmail.com
                       </Button>
                       <Button
                         size="md"
@@ -75,7 +75,7 @@ const Contact = () => {
                         color="#DCE2FF"
                         _hover={{ border: '2px solid #1C6FEB' }}
                         leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
-                        Karnavati, India
+                        Chorda Bye Pass, Jajpur Road,{<br/>} Highway 215, Jajpur, Odisha 755019
                       </Button>
                     </VStack>
                   </Box>
@@ -86,6 +86,8 @@ const Contact = () => {
                     alignItems="flex-start">
                     <IconButton
                       aria-label="facebook"
+                      
+                      color={"white"}
                       variant="ghost"
                       size="lg"
                       isRound={true}
@@ -93,21 +95,23 @@ const Contact = () => {
                       icon={<MdFacebook size="28px" />}
                     />
                     <IconButton
-                      aria-label="github"
+                      aria-label="whatsapp"
+                      color={"whatsapp.400"}
                       variant="ghost"
-                      size="lg"
+                      
                       isRound={true}
                       _hover={{ bg: '#0D74FF' }}
-                      icon={<BsGithub size="28px" />}
+                      icon={<BsWhatsapp size="28px" />}
                     />
-                    <IconButton
+                    {/* <IconButton
                       aria-label="discord"
+                      color={"white"}
                       variant="ghost"
                       size="lg"
                       isRound={true}
                       _hover={{ bg: '#0D74FF' }}
                       icon={<BsDiscord size="28px" />}
-                    />
+                    /> */}
                   </HStack>
                 </Box>
               </WrapItem>
