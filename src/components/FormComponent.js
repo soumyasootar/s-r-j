@@ -1,12 +1,4 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Spacer,
-} from "@chakra-ui/react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import {
@@ -17,7 +9,11 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
+  useDisclosure, Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Spacer,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/toast";
 import axios from "axios";

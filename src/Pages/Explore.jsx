@@ -121,6 +121,7 @@ const Explore = () => {
               </CardBody>
 
               <CardFooter pl="2" display={"flex"} flexDirection={"column"}>
+              <Link to={`/explore/blog/${blog._id}`} key={blog._id}>
                 <Heading
                   size="md"
                   fontFamily={"'Shippori Antique B1', sans-serif"}
@@ -130,6 +131,7 @@ const Explore = () => {
                 >
                   {blog.title}
                 </Heading>
+                </Link>
                 <Text
                   fontFamily={"Inter, sans-serif;"}
                   color={"rgb(43, 43, 48)"}
