@@ -76,14 +76,14 @@ const Explore = () => {
   console.log(allblogs, "data getting from server");
 
   return (
-    <Box p={"15px"} w={"100%"}>
+    <Box p={"15px"} w={"100%"}  mb={{md : "1500px", lg : "0px"}}>
       <Text textAlign={"center"} fontSize={"50px"} fontFamily={"'Shippori Antique B1', sans-serif"}>
         Blogs
       </Text>
       <Box w={"94%"} textAlign={"end"}>
         <FormComponent />
       </Box>
-      <SimpleGrid my={"10"} px={"50px"} columns={4} spacing={4}>
+      <SimpleGrid my={"10"} px={"50px"}   columns={{ md: "2", lg: "4" }} spacing={4} >
         {allblogs.map((blog) => (
           <Box key={blog._id}>
             <Card maxW="95%" bg={"white"}>
@@ -94,33 +94,11 @@ const Explore = () => {
                   borderRadius="5px 5px 0px 0px"
                   mb={2}
                 />
-                {/* <Flex
-                  position={"absolute"}
-                  top={0}
-                  right={0}
-                  w={"35%"}
-                  justifyContent={"space-between"}
-                >
-                  <Box>
-                    <IconButton
-                      colorScheme="red"
-                      aria-label="Delete"
-                      icon={<DeleteIcon />}
-                      onClick={() => deleteBlog(blog._id)}
-                    />
-                  </Box>
-                  <Box>
-                    <IconButton
-                      colorScheme="blue"
-                      aria-label="Edit"
-                      icon={<EditIcon />}
-                      onClick={() => handleEditBlog(blog._id)}
-                    />
-                  </Box>
-                </Flex> */}
+                
               </CardBody>
 
               <CardFooter pl="2" display={"flex"} flexDirection={"column"}>
+              <Link to={`/explore/blog/${blog._id}`} key={blog._id}>
                 <Heading
                   size="md"
                   fontFamily={"'Shippori Antique B1', sans-serif"}
@@ -130,6 +108,7 @@ const Explore = () => {
                 >
                   {blog.title}
                 </Heading>
+                </Link>
                 <Text
                   fontFamily={"Inter, sans-serif;"}
                   color={"rgb(43, 43, 48)"}

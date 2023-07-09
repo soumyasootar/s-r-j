@@ -79,12 +79,12 @@ const IndividualBlog = () => {
           {state.title.slice(1)}
         </Heading>
         <Text fontFamily={"'Salsa', cursive"}>{parse(state.content)}</Text>
-        <Flex mt={5} justifyContent={"space-between"}>
+        <Flex mt={5} justifyContent={"space-between"} >
           <Box>
-            <Text fontFamily={"sans-serif"}  color={"#526D82"}>Author : {state.author}</Text>
+            <Text fontSize={"12px"} fontFamily={"sans-serif"}  color={"#526D82"}>Author : {state.author}</Text>
           </Box>
           <Box>
-            <Text color={"#526D82"} fontFamily={"sans-serif"}>CreatedAt : {formatCreatedAt(state.createdAt)}</Text>
+            <Text fontSize={"12px"} color={"#526D82"} fontFamily={"sans-serif"}>CreatedAt : {formatCreatedAt(state.createdAt)}</Text>
           </Box>
         </Flex>
       </Box>
