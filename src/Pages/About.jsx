@@ -44,8 +44,8 @@ const About = () => {
           style={{
             background: "rgba( 255, 255, 255, 0.25 )",
             boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-            backdropFilter: "blur( 2px )",
-            WebkitBackdropFilter: "blur( 2px )",
+            backdropFilter: "blur( 8px )",
+            WebkitBackdropFilter: "blur( 8px )",
             borderRadius: "10px",
             border: "1px solid rgba( 255, 255, 255, 0.18 )",
           }}
@@ -56,7 +56,7 @@ const About = () => {
             fontFamily={"'Diphylleia', serif"}
             fontWeight={"700"}
             fontSize={{ base: "7xl", md: "7xl", lg: "5xl" }}
-            color={"#323232"}
+            color={"#B64241"}
             textShadow={"unset"}
             style={{
             textShadow:
@@ -70,11 +70,8 @@ const About = () => {
             fontFamily={"'Kaisei HarunoUmi', serif"}
             fontWeight={"600"}
             fontSize={{ base: "4xl", md: "4xl", lg: "xl" }}
-            color={"white"}
-            style={{
-            textShadow:
-              "0px 0px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black",
-          }}
+            color={"black"}
+            
             top={""}
             mt={{ base: "30x", md: "30px", lg: "" }}
           >

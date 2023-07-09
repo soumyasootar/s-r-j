@@ -24,7 +24,7 @@
 
 //   const fetchData = () => {
 //     axios
-//       .get("http://localhost:3001/blog/posts")
+//       .get("https://srj-back-end.vercel.app/blog/posts")
 //       .then((response) => {
 //         setAllblogs(response.data);
 //       })

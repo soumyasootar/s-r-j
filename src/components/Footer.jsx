@@ -22,7 +22,7 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { BsWhatsapp } from 'react-icons/bs';
 const Footer = () => {
   return (
-    <Box p={{ base: 5, md: 8 }}  maxW="10xl" marginInline="auto" bg={"#F2EFEA"}>
+    <Box p={{ base: 5, md: 8 }}   maxW="10xl" marginInline="auto" bg={"#F2EFEA"}>
       <Stack
         spacing={{ base: 8, md: 0 }}
         justifyContent="space-between"
@@ -80,26 +80,13 @@ const Footer = () => {
           </VStack>
         </HStack>
       </Stack>
-
-  
-
       <Center   w={"100%"} >
         <Text fontSize="md" mb={"-5"}>
           Made with ❤️
-          
         </Text>
-        
       </Center>
     </Box>
   );
 };
-
-// const Link = ({ children, ...props }: LinkProps) => {
-//   return (
-//     <Link href="#" fontSize="sm" _hover={{ textDecoration: 'underline' }} {...props}>
-//       {children}
-//     </Link>
-//   )
-// }
 
 export default Footer
