@@ -40,7 +40,7 @@ import {
 import { GiAtSea } from "react-icons/gi";
 import { FaGlassWhiskey } from "react-icons/fa";
 import { BiArea } from "react-icons/bi";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
@@ -105,8 +105,6 @@ const roomsArray = [
   },
 ];
 
-
-
 const IndividualRoom = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   let { id } = useParams();
@@ -114,40 +112,38 @@ const IndividualRoom = () => {
   const [persons, setPersons] = useState(1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const toast = useToast()
+  const toast = useToast();
 
   const handleWhatsAppBooking = () => {
     const formattedStartDate = startDate
       ? startDate.toLocaleDateString("en-GB")
       : "";
-    const formattedEndDate = endDate
-      ? endDate.toLocaleDateString("en-GB")
-      : "";
+    const formattedEndDate = endDate ? endDate.toLocaleDateString("en-GB") : "";
 
-      if (!startDate || !endDate) {
-        toast({
-          title: "Incomplete Booking",
-          description: "Please select both start and end dates.",
-          status: "warning",
-          duration: 5000,
-          isClosable: true,
-        });
-        return;
-      }
-  
-      if (startDate > endDate) {
-        toast({
-          title: "Invalid Dates",
-          description: "Please select a date after the start date for the end date.",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-        return;
-      }
+    if (!startDate || !endDate) {
+      toast({
+        title: "Incomplete Booking",
+        description: "Please select both start and end dates.",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    if (startDate > endDate) {
+      toast({
+        title: "Invalid Dates",
+        description:
+          "Please select a date after the start date for the end date.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
     sendWhatsAppMessage(persons, formattedStartDate, formattedEndDate);
   };
-  
 
   const sendWhatsAppMessage = (persons, startDate, endDate) => {
     console.log("endDate: ", endDate);
@@ -157,7 +153,7 @@ const IndividualRoom = () => {
     const message = `Hello, I would like to book a hotel for ${persons} person(s) from ${startDate} to ${endDate}.`;
     const encodedMessage = encodeURIComponent(message);
     const url = `${baseUrl}?text=${encodedMessage}`;
-    window.open(url, "_blank")
+    window.open(url, "_blank");
   };
   return (
     <Box p={5}>
@@ -341,6 +337,13 @@ const IndividualRoom = () => {
             <option value="3">3</option>
             <option value="4">4</option>
           </Select>
+          <HStack w={"full"} borderRadius="4" p="1" px="8">
+            <Text>Check-In</Text>
+            <Spacer />
+            &nsbp;
+            <Spacer />
+            <Text>Check-Out</Text>
+          </HStack>
           <HStack
             w={"full"}
             borderRadius="10"
@@ -350,7 +353,9 @@ const IndividualRoom = () => {
             <Input
               type="date"
               border="none"
+              placeholder="Start Date"
               color={"black"}
+              
               min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setStartDate(new Date(e.target.value))}
             />
@@ -358,12 +363,19 @@ const IndividualRoom = () => {
             <Input
               type="date"
               border="none"
+              placeholder="End Date"
               color={"black"}
+              textAlign={"end"}
               min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setEndDate(new Date(e.target.value))}
             />
           </HStack>
-          <Button colorScheme="whatsapp" w={"full"} mt={{ base: "5", md: "0" }} onClick={handleWhatsAppBooking}>
+          <Button
+            colorScheme="whatsapp"
+            w={"full"}
+            mt={{ base: "5", md: "0" }}
+            onClick={handleWhatsAppBooking}
+          >
             Book With WhatsApp &nbsp; <BsWhatsapp />
           </Button>
           <Button
