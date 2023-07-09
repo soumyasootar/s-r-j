@@ -4,21 +4,17 @@ import {
   Button,
   Flex,
   HStack,
-  Icon,
   Image,
   Select,
   Text,
   VStack,
-  Table,
-  Tbody,
-  Tr,
-  Td,
   Heading,
   Stack,
-  Center,
   Spacer,
   useColorMode,
   Input,
+  Toast,
+  useToast,
 } from "@chakra-ui/react";
 import {
   BsFillKeyFill,
@@ -29,6 +25,8 @@ import {
   BsReception3,
   BsQrCodeScan,
 } from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
+
 import { GrCafeteria } from "react-icons/gr";
 import { IoMdCafe, IoMdBed } from "react-icons/io";
 import {
@@ -42,13 +40,7 @@ import {
 import { GiAtSea } from "react-icons/gi";
 import { FaGlassWhiskey } from "react-icons/fa";
 import { BiArea } from "react-icons/bi";
-import { ArrowForwardIcon, ChevronRightIcon } from "@chakra-ui/icons";
-
-import { FaWater } from "react-icons/fa";
-import { MdRoomService } from "react-icons/md";
-import { AiFillCreditCard } from "react-icons/ai";
-import { BiShower } from "react-icons/bi";
-// import FormComponent from "./FormComponent";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
@@ -113,10 +105,60 @@ const roomsArray = [
   },
 ];
 
+
+
 const IndividualRoom = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   let { id } = useParams();
   const [room, setRoom] = useState(roomsArray[id - 1]);
+  const [persons, setPersons] = useState(1);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const toast = useToast()
+
+  const handleWhatsAppBooking = () => {
+    const formattedStartDate = startDate
+      ? startDate.toLocaleDateString("en-GB")
+      : "";
+    const formattedEndDate = endDate
+      ? endDate.toLocaleDateString("en-GB")
+      : "";
+
+      if (!startDate || !endDate) {
+        toast({
+          title: "Incomplete Booking",
+          description: "Please select both start and end dates.",
+          status: "warning",
+          duration: 5000,
+          isClosable: true,
+        });
+        return;
+      }
+  
+      if (startDate > endDate) {
+        toast({
+          title: "Invalid Dates",
+          description: "Please select a date after the start date for the end date.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+        return;
+      }
+    sendWhatsAppMessage(persons, formattedStartDate, formattedEndDate);
+  };
+  
+
+  const sendWhatsAppMessage = (persons, startDate, endDate) => {
+    console.log("endDate: ", endDate);
+    console.log("startDate: ", startDate);
+    const phoneNumber = "917205838683";
+    const baseUrl = `https://wa.me/${phoneNumber}`;
+    const message = `Hello, I would like to book a hotel for ${persons} person(s) from ${startDate} to ${endDate}.`;
+    const encodedMessage = encodeURIComponent(message);
+    const url = `${baseUrl}?text=${encodedMessage}`;
+    window.open(url, "_blank")
+  };
   return (
     <Box p={5}>
       {/* images start  */}
@@ -149,7 +191,7 @@ const IndividualRoom = () => {
       </Flex>
       {/* images end */}
 
-      <Flex gap="30px" mx={"36"}>
+      <Flex gap="30px" mx={{ base: "3", md: "3", lg: "36" }} mt={"20"} mb={40}>
         {/* name and description  */}
         <Box w="55%" mb="20">
           <Heading color="#f15824" mt="10px">
@@ -219,7 +261,6 @@ const IndividualRoom = () => {
                 <Text fontSize="1xl">UPI PAyment Accepted</Text>
               </HStack>
             </Box>
-
             <Box>
               <HStack mb="8px">
                 <MdLocalLaundryService />
@@ -250,47 +291,93 @@ const IndividualRoom = () => {
         </Box>
         {/* ammentites */}
       </Flex>
-      <HStack mx={"36"} p="5" my={10} style={{
-              background: "#FA8745",
-              boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-              backdropFilter: "blur( 12.5px )",
-              WebkitBackdropFilter: "blur( 12.5px )",
-              borderRadius: "10px",
-              border: "1px solid rgba( 255, 255, 255, 0.18 )",
-            }}>
-        <VStack mb="5">
-          <Text
-            as={"h3"}
-            fontSize="40px"
-            fontWeight="700"
-            color={colorMode === "light" ? "black" : "white"}
-          >
-            Book your stay
-          </Text>
-        </VStack>
+
+      <Stack
+        direction={{ base: "column", md: "column", lg: "row" }}
+        mx={{ base: "3", md: "3", lg: "36" }}
+        p={"10"}
+        style={{
+          background: "#f5742a",
+          boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+          backdropFilter: "blur( 12.5px )",
+          WebkitBackdropFilter: "blur( 12.5px )",
+          borderRadius: "10px",
+          border: "1px solid rgba( 255, 255, 255, 0.18 )",
+        }}
+        marginBottom={"300px"}
+        fontFamily={"'Noticia Text', serif"}
+      >
+        <Text
+          as={"h3"}
+          fontSize={{ base: "30px", md: "50px" }}
+          fontStyle={"italic"}
+          fontWeight="700"
+          color={"white"}
+          mb={10}
+        >
+          Book Your Stay
+        </Text>
         <Spacer />
-        <HStack w={"450px"}>
-          <Select placeholder="Persons" fontSize="sm" bg="white" color={"black"}>
+        <VStack
+          p={5}
+          style={{
+            background: "rgba( 255, 255, 255, 0.25 )",
+            boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+            backdropFilter: "blur( 12.5px )",
+            WebkitBackdropFilter: "blur( 12.5px )",
+            borderRadius: "10px",
+            border: "1px solid rgba( 255, 255, 255, 0.18 )",
+          }}
+        >
+          <Select
+            placeholder="Persons"
+            w={"full"}
+            bg="white"
+            onChange={(e) => setPersons(e.target.value)}
+            textAlign={"center"}
+          >
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
           </Select>
           <HStack
+            w={"full"}
             borderRadius="10"
             bg="white"
             boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
           >
-            <Input type="date" border="none" color={"black"} />
+            <Input
+              type="date"
+              border="none"
+              color={"black"}
+              min={new Date().toISOString().split("T")[0]}
+              onChange={(e) => setStartDate(new Date(e.target.value))}
+            />
             <ArrowForwardIcon color={"black"} />
-            <Input type="date" border="none" color={"black"} />
+            <Input
+              type="date"
+              border="none"
+              color={"black"}
+              min={new Date().toISOString().split("T")[0]}
+              onChange={(e) => setEndDate(new Date(e.target.value))}
+            />
           </HStack>
-        </HStack>
-      </HStack>
+          <Button colorScheme="whatsapp" w={"full"} mt={{ base: "5", md: "0" }} onClick={handleWhatsAppBooking}>
+            Book With WhatsApp &nbsp; <BsWhatsapp />
+          </Button>
+          <Button
+            colorScheme="blue"
+            w={"full"}
+            mt={{ base: "3", md: "0" }}
+            onClick={() => window.open("tel:+1234567890", "_blank")}
+          >
+            Call to Book
+          </Button>
+        </VStack>
+      </Stack>
     </Box>
   );
 };
 
 export default IndividualRoom;
-
-

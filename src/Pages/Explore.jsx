@@ -1,11 +1,9 @@
-
 import {
   Box,
   Flex,
   Heading,
   IconButton,
   SimpleGrid,
-  
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -60,7 +58,6 @@ const Explore = () => {
       });
   };
 
-
   const formatCreatedAt = (createdAt) => {
     const date = new Date(createdAt);
     const formattedDate = date.toLocaleString("en-US", {
@@ -76,59 +73,79 @@ const Explore = () => {
   console.log(allblogs, "data getting from server");
 
   return (
-    <Box p={"15px"} w={"100%"}  mb={{md : "1500px", lg : "0px"}}>
-      <Text textAlign={"center"} fontSize={"50px"} fontFamily={"'Shippori Antique B1', sans-serif"}>
+    <Box p={"15px"} w={"100%"} mb={{ md: "1500px", lg: "0px" }}>
+      <Text
+        textAlign={"center"}
+        fontSize={"50px"}
+        fontFamily={"'Shippori Antique B1', sans-serif"}
+      >
         Blogs
       </Text>
       <Box w={"94%"} textAlign={"end"}>
         <FormComponent />
       </Box>
-      <SimpleGrid my={"10"} px={"50px"}   columns={{ md: "2", lg: "4" }} spacing={4} >
+      <SimpleGrid
+        my={"10"}
+        px={"50px"}
+        columns={{ md: "2", lg: "4" }}
+        spacing={4}
+      >
         {allblogs.map((blog) => (
           <Box key={blog._id}>
             <Card maxW="95%" bg={"white"}>
-              <CardBody p="0" position={"relative"}>
-                <Image
-                  src={blog.images[0]}
-                  alt="Green double couch with wooden legs"
-                  borderRadius="5px 5px 0px 0px"
-                  mb={2}
-                />
-                
-              </CardBody>
-
-              <CardFooter pl="2" display={"flex"} flexDirection={"column"}>
               <Link to={`/explore/blog/${blog._id}`} key={blog._id}>
-                <Heading
-                  size="md"
-                  fontFamily={"'Shippori Antique B1', sans-serif"}
-                  color={"rgb(0, 116, 117)"}
-                  mb="2"
-                  fontSize={"20px"}
-                >
-                  {blog.title}
-                </Heading>
-                </Link>
-                <Text
-                  fontFamily={"Inter, sans-serif;"}
-                  color={"rgb(43, 43, 48)"}
-                  fontSize={"14px"}
-                >
-                  {blog.content && blog.content.length > 100
-                    ? parse(blog.content.slice(0, 100) + "...")
-                    : parse(blog.content)}
+                <CardBody p="0" position={"relative"}>
+                  <Image
+                    src={blog.images[0]}
+                    alt="Green double couch with wooden legs"
+                    borderRadius="5px 5px 0px 0px"
+                    mb={2}
+                  />
+                </CardBody>
+                <CardFooter pl="2" display={"flex"} flexDirection={"column"}>
                   <Link to={`/explore/blog/${blog._id}`} key={blog._id}>
-                    <Text as="span" color="blue.500" >
-                     <span style={{textDecoration : "underline"}}>Read more</span> 
-                    </Text>
+                    <Heading
+                      size="md"
+                      fontFamily={"'Shippori Antique B1', sans-serif"}
+                      color={"rgb(0, 116, 117)"}
+                      mb="2"
+                      fontSize={"20px"}
+                    >
+                      {blog.title}
+                    </Heading>
                   </Link>
-                </Text>
+                  <Text
+                    fontFamily={"Inter, sans-serif;"}
+                    color={"rgb(43, 43, 48)"}
+                    fontSize={"14px"}
+                  >
+                    {blog.content && blog.content.length > 100
+                      ? parse(blog.content.slice(0, 100) + "...")
+                      : parse(blog.content)}
+                    <Text as="span" color="blue.500">
+                      <span style={{ textDecoration: "underline" }}>
+                        Read more
+                      </span>
+                    </Text>
+                  </Text>
                   <Box mt={5}>
-
-                <Text fontFamily={"'Shippori Antique B1', sans-serif"} fontSize={"12px"} color={"#526D82"}>Author : {blog.author}</Text>
-                <Text fontFamily={"'Shippori Antique B1', sans-serif"} fontSize={"12px"} color={"#526D82"}>CreatedAt : {formatCreatedAt(blog.createdAt)}</Text>
+                    <Text
+                      fontFamily={"'Shippori Antique B1', sans-serif"}
+                      fontSize={"12px"}
+                      color={"#526D82"}
+                    >
+                      Author : {blog.author}
+                    </Text>
+                    <Text
+                      fontFamily={"'Shippori Antique B1', sans-serif"}
+                      fontSize={"12px"}
+                      color={"#526D82"}
+                    >
+                      CreatedAt : {formatCreatedAt(blog.createdAt)}
+                    </Text>
                   </Box>
-              </CardFooter>
+                </CardFooter>
+              </Link>
             </Card>
           </Box>
         ))}

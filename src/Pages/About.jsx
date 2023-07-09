@@ -14,6 +14,7 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import deskimage from "../Images/FrontDesk.jpg";
+import Map from "../components/Map";
 
 const About = () => {
   return (
@@ -49,7 +50,6 @@ const About = () => {
             borderRadius: "10px",
             border: "1px solid rgba( 255, 255, 255, 0.18 )",
           }}
-          
         >
           <Heading
             align={"start"}
@@ -59,9 +59,9 @@ const About = () => {
             color={"#B64241"}
             textShadow={"unset"}
             style={{
-            textShadow:
-              "0px 0px 0 black, 1px 1px 0 white, 1px 1px 0 white, 1px 1px 0 black",
-          }}
+              textShadow:
+                "0px 0px 0 black, 1px 1px 0 white, 1px 1px 0 white, 1px 1px 0 black",
+            }}
           >
             A Modern Premise in the Heritage town of Jajpur
           </Heading>
@@ -71,7 +71,6 @@ const About = () => {
             fontWeight={"600"}
             fontSize={{ base: "4xl", md: "4xl", lg: "xl" }}
             color={"black"}
-            
             top={""}
             mt={{ base: "30x", md: "30px", lg: "" }}
           >
@@ -88,6 +87,9 @@ const About = () => {
           </Text>
         </Stack>
       </Stack>
+      <Box p={"10"}>
+        <Map />
+      </Box>
     </Box>
   );
 };
