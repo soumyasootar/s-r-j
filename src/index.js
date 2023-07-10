@@ -20,7 +20,7 @@ const config = {
 const theme = extendTheme({ config ,breakpoints});
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ChakraProvider theme={theme}>
+  <ChakraProvider >
     <BrowserRouter>
       <App />
     </BrowserRouter>
