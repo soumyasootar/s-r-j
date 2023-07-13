@@ -172,7 +172,7 @@ const Home = () => {
                 bg={useColorModeValue("white", "black")}
               />
             </VStack>
-            <VStack borderRadius={"2xl"} p={"5"} bg={"#F96E1E"}>
+            <VStack borderRadius={"2xl"} p={"5"} >
               <Text fontFamily={"'Shippori Antique B1', sans-serif"}>
                 Check Out
               </Text>
@@ -191,21 +191,21 @@ const Home = () => {
               </Text>
               <HStack>
                 <IconButton
-                  icon={<AddIcon color={"white"} />}
-                  aria-label="Increase number of persons"
-                  onClick={handleIncrement}
-                  bg={"#F96E1E"}
-                  disabled={numberOfPersons >= 4}
-                />
-                <Box fontFamily={"'Shippori Antique B1', sans-serif"} mx={2}>
-                  {numberOfPersons}
-                </Box>
-                <IconButton
                   icon={<MinusIcon color={"white"} />}
                   aria-label="Decrease number of persons"
                   onClick={handleDecrement}
                   bg={"#F96E1E"}
                   disabled={numberOfPersons <= 1}
+                />
+                <Box fontFamily={"'Shippori Antique B1', sans-serif"} mx={2}>
+                  {numberOfPersons}
+                </Box>
+                <IconButton
+                  icon={<AddIcon color={"white"} />}
+                  aria-label="Increase number of persons"
+                  onClick={handleIncrement}
+                  bg={"#F96E1E"}
+                  disabled={numberOfPersons >= 4}
                 />
               </HStack>
             </VStack>
@@ -221,7 +221,7 @@ const Home = () => {
                 w={{ base: "100%", md: "100%", lg: "" }}
                 onClick={handleFindRooms}
               >
-                Search &nbsp; <br />
+                Search Rooms &nbsp; <br />
                 <BiHotel />
               </Button>
             </Center>
@@ -230,12 +230,13 @@ const Home = () => {
         {/* ----------Icon Facility ------------------ */}
         <Stack fontSize={{ base: "30px", md: "30px", lg: "xs" }} direction={{ base: "column", md: "column", lg: "row" }} bg="white" color="black" p={10} borderRadius={"2xl"} mt={"5"}>
           <Flex
-            bg={"#A7CAB1"}
+            bg={"#88B7B5"}
             borderRadius={"2xl"}
             p={5}
             align="center"
             flexDirection="column"
             mb={4}
+            pr={10}
           >
             {/* <Icon as={FiDollarSign} boxSize={6} color="teal.500" mb={2} /> */}
             <Image
@@ -260,7 +261,7 @@ const Home = () => {
             align="center"
             flexDirection="column"
             mb={4}
-            bg={"#D5A18E"}
+            bg={"#7899D4"}
           >
             {/* <Image src={familyicon} mb={8} w={{ base: "140px", md: "150px",lg:"100px" }}/> */}
             <Icon
@@ -309,7 +310,7 @@ const Home = () => {
           </Flex>
 
           <Flex
-            bg={"#B9314F"}
+            bg={"#7899D4"}
             borderRadius={"2xl"}
             p={5}
             align="center"
