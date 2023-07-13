@@ -169,7 +169,8 @@ const Home = () => {
                 size={{ base: "lg", md: "lg", lg: "md" }}
                 type="date"
                 placeholder="Check-in Date"
-                bg={useColorModeValue("white", "black")}
+                // bg={useColorModeValue("white", "black")}
+                bg={"white"}
               />
             </VStack>
             <VStack borderRadius={"2xl"} p={"5"} >
@@ -182,7 +183,8 @@ const Home = () => {
                 placeholder="Check-Out Date"
                 min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setEndDate(new Date(e.target.value))}
-                bg={useColorModeValue("white", "black")}
+                // bg={useColorModeValue("white", "black")}
+                bg={"white"}
               />
             </VStack>
             <VStack borderRadius={"2xl"} p={"4"}>

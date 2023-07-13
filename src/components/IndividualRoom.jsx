@@ -355,6 +355,7 @@ const IndividualRoom = () => {
               border="none"
               placeholder="Start Date"
               color={"black"}
+              bg={"white"}
               
               min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setStartDate(new Date(e.target.value))}
@@ -366,6 +367,8 @@ const IndividualRoom = () => {
               placeholder="End Date"
               color={"black"}
               textAlign={"end"}
+              bg={"white"}
+
               min={new Date().toISOString().split("T")[0]}
               onChange={(e) => setEndDate(new Date(e.target.value))}
             />
