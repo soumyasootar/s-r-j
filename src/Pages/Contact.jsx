@@ -33,6 +33,7 @@ import {
   BsFillTelephoneFill,
 } from "react-icons/bs";
 import Map from "../components/Map";
+import Home from "./Home";
 const Contact = () => {
   return (
     <>
@@ -85,7 +86,7 @@ const Contact = () => {
                           _hover={{ border: "2px solid #1C6FEB" }}
                           leftIcon={<MdEmail color="black" size="20px" />}
                         >
-                          <Link href={"mailto:soumyaswaroopsootar@gmail.com"}>
+                          <Link href={"mailto:asuas.sutar@gmail.com"}>
                             saritaresort@gmail.com
                           </Link>
                         </Button>

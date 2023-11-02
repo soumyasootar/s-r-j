@@ -148,7 +148,7 @@ const IndividualRoom = () => {
   const sendWhatsAppMessage = (persons, startDate, endDate) => {
     console.log("endDate: ", endDate);
     console.log("startDate: ", startDate);
-    const phoneNumber = "917205838683";
+    const phoneNumber = "918339900225";
     const baseUrl = `https://wa.me/${phoneNumber}`;
     const message = `Hello, I would like to book a hotel for ${persons} person(s) from ${startDate} to ${endDate}.`;
     const encodedMessage = encodeURIComponent(message);
