@@ -11,9 +11,7 @@ import {
   Heading,
   Stack,
   Spacer,
-  useColorMode,
   Input,
-  Toast,
   useToast,
 } from "@chakra-ui/react";
 import {
@@ -40,7 +38,7 @@ import {
 import { GiAtSea } from "react-icons/gi";
 import { FaGlassWhiskey } from "react-icons/fa";
 import { BiArea } from "react-icons/bi";
-import { ArrowForwardIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
@@ -106,9 +104,8 @@ const roomsArray = [
 ];
 
 const IndividualRoom = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   let { id } = useParams();
-  const [room, setRoom] = useState(roomsArray[id - 1]);
+  const [room] = useState(roomsArray[id - 1]);
   const [persons, setPersons] = useState(1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -148,7 +145,7 @@ const IndividualRoom = () => {
   const sendWhatsAppMessage = (persons, startDate, endDate) => {
     console.log("endDate: ", endDate);
     console.log("startDate: ", startDate);
-    const phoneNumber = "918339900225";
+    const phoneNumber = "919437072657";
     const baseUrl = `https://wa.me/${phoneNumber}`;
     const message = `Hello, I would like to book a hotel for ${persons} person(s) from ${startDate} to ${endDate}.`;
     const encodedMessage = encodeURIComponent(message);
@@ -385,7 +382,7 @@ const IndividualRoom = () => {
             colorScheme="blue"
             w={"full"}
             mt={{ base: "3", md: "0" }}
-            onClick={() => window.open("tel:+1234567890", "_blank")}
+            onClick={() => window.open("tel:+919437072657", "_blank")}
           >
             Call to Book
           </Button>

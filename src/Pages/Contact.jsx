@@ -5,10 +5,8 @@ import {
   Box,
   Heading,
   Text,
-  IconButton,
   Button,
   VStack,
-  HStack,
   Wrap,
   WrapItem,
   FormControl,
@@ -23,17 +21,12 @@ import {
   MdPhone,
   MdEmail,
   MdLocationOn,
-  MdFacebook,
   MdOutlineEmail,
 } from "react-icons/md";
 import {
-  BsWhatsapp,
-  BsDiscord,
-  BsPerson,
-  BsFillTelephoneFill,
+  BsPerson
 } from "react-icons/bs";
 import Map from "../components/Map";
-import Home from "./Home";
 const Contact = () => {
   return (
     <>
@@ -75,7 +68,7 @@ const Contact = () => {
                           justifyContent="start"
                           leftIcon={<MdPhone color="black" size="20px" />}
                         >
-                          <Link href="tel:+4733378901">+47 333 78 901</Link>
+                          <Link href="tel:+919437072657">+91-9437072657</Link>
                         </Button>
                         <Button
                           size="md"
