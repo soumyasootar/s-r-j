@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const roomsArray = [
   {
     id: 1,
-    price: 599,
+    price: 1200,
     images: [
       "https://cdn1.goibibo.com/voy_ing/t_fs/02de7bec1ea011ecba1d0a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
@@ -29,7 +29,7 @@ const roomsArray = [
   },
   {
     id: 2,
-    price: 699,
+    price: 1500,
     images: [
       "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
@@ -44,7 +44,7 @@ const roomsArray = [
   },
   {
     id: 3,
-    price: 799,
+    price: 1500,
     images: [
       "https://cdn1.goibibo.com/voy_ing/t_fs/e8f9f564204611ec80820a58a9feac02.jpg",
       "https://cdn1.goibibo.com/voy_ing/t_fs/043d1f2a1ea011ec8fb20a58a9feac02.jpg",
@@ -59,7 +59,7 @@ const roomsArray = [
   },
   {
     id: 4,
-    price: 899,
+    price: 1800,
     images: [
       "https://cdn1.goibibo.com/voy_ing/t_fs/bb63790e204611eca6050a58a9feac02.jpg",
       "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201704231808567326-242972-62888cb61e9d11eca4f70a58a9feac02.jpg",
