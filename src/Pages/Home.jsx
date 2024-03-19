@@ -21,18 +21,18 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-import { AddIcon, MinusIcon} from "@chakra-ui/icons";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { BiHotel } from "react-icons/bi";
 import FamilyIcon from "../Images/FamilyIcon";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [numberOfPersons, setNumberOfPersons] = useState(1);
-  const [persons, setPersons] = useState(1);
+  // const [persons, setPersons] = useState(1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const toast = useToast()
-  const Navigate=useNavigate()
+  const Navigate = useNavigate()
 
   const handleIncrement = () => {
     if (numberOfPersons < 4) {
@@ -47,29 +47,29 @@ const Home = () => {
   };
 
   const handleFindRooms = () => {
-      if (!startDate || !endDate) {
-        toast({
-          title: "Incomplete Booking",
-          description: "Please select both Check-in and Check-out dates.",
-          status: "warning",
-          duration: 5000,
-          isClosable: true,
-        });
-        return;
-      }
-  
-      if (startDate > endDate) {
-        toast({
-          title: "Invalid Dates",
-          description: "Check-out date must be after Check-in date. Please Change !",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-        return;
-      }
+    if (!startDate || !endDate) {
+      toast({
+        title: "Incomplete Booking",
+        description: "Please select both Check-in and Check-out dates.",
+        status: "warning",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
 
-      Navigate("/rooms")
+    if (startDate > endDate) {
+      toast({
+        title: "Invalid Dates",
+        description: "Check-out date must be after Check-in date. Please Change !",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    Navigate("/rooms")
 
   };
   return (
@@ -104,8 +104,8 @@ const Home = () => {
             fontSize={{ base: "9xl", md: "9xl", lg: "8xl" }}
             top={""}
           >
-           
-            We Welcome You All To <br />
+
+            Welcome To <br />
             <span style={{ color: "#F96E1E", textShadow: "unset" }}>
               Sarita Resorts.
             </span>
@@ -129,7 +129,9 @@ const Home = () => {
             w={{ base: "80%", md: "80%", lg: "52%" }}
           >
             {" "}
-            Just 1.2 Kilometers from Jajpur Road Railway station, we provide
+            <span style={{ color: "#F96E1E", textShadow:"0.3px 0.3px 0.3px grey"}}>
+              Just 1.2 Kilometers
+            </span> from Jajpur Road Railway station, we provide
             perfect rooms for your budget friendly business trip or luxurious
             family vacation.{" "}
           </Text>
@@ -165,7 +167,7 @@ const Home = () => {
 
                 // size={{ base: "lg", md: "lg", lg: "" }}
                 min={new Date().toISOString().split("T")[0]}
-              onChange={(e) => setStartDate(new Date(e.target.value))}
+                onChange={(e) => setStartDate(new Date(e.target.value))}
                 size={{ base: "lg", md: "lg", lg: "md" }}
                 type="date"
                 placeholder="Check-in Date"
@@ -182,7 +184,7 @@ const Home = () => {
                 type="date"
                 placeholder="Check-Out Date"
                 min={new Date().toISOString().split("T")[0]}
-              onChange={(e) => setEndDate(new Date(e.target.value))}
+                onChange={(e) => setEndDate(new Date(e.target.value))}
                 // bg={useColorModeValue("white", "black")}
                 bg={"white"}
               />
@@ -246,7 +248,7 @@ const Home = () => {
               mb={8}
               w={{ base: "140px", md: "150px", lg: "100px" }}
             />
-            <Text fontFamily={"'Salsa', cursive"} color={"white"}  fontSize={{ base: "45px", md: "45px", lg: "20px" }}>
+            <Text fontFamily={"'Salsa', cursive"} color={"white"} fontSize={{ base: "45px", md: "45px", lg: "20px" }}>
               {" "}
               Best Value for Money
             </Text>

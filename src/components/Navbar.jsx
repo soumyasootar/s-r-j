@@ -12,7 +12,6 @@ import {
   Spacer,
   Stack,
   VStack,
-  useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -21,7 +20,7 @@ import React from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  // const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = React.useState("right");
   return (

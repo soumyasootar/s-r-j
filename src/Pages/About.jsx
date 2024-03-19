@@ -1,19 +1,11 @@
 import * as React from "react";
 import {
-  Container,
   Heading,
   Stack,
-  HStack,
   Text,
-  useColorModeValue,
-  Button,
   Image,
-  Skeleton,
   Box,
-  Link,
-  Spacer,
 } from "@chakra-ui/react";
-import deskimage from "../Images/FrontDesk.jpg";
 import Map from "../components/Map";
 
 const About = () => {

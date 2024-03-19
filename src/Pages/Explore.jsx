@@ -1,9 +1,7 @@
 import {
   Box,
   Center,
-  Flex,
   Heading,
-  IconButton,
   SimpleGrid,
   Spinner,
   Text,
@@ -13,7 +11,7 @@ import { Card, Image, CardBody, CardFooter } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import FormComponent from "../components/FormComponent";
 import axios from "axios";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+// import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import parse from "html-react-parser";
 
 const Explore = () => {
@@ -34,31 +32,31 @@ const Explore = () => {
       });
   };
 
-  const deleteBlog = (id) => {
-    axios
-      .delete(`https://srj-back-end.vercel.app/blog/posts/${id}`)
-      .then((response) => {
-        console.log("Blog deleted successfully");
-        // Update the state or refetch data to reflect the changes
-        fetchData();
-      })
-      .catch((error) => {
-        console.error("Error deleting blog:", error);
-      });
-  };
+  // const deleteBlog = (id) => {
+  //   axios
+  //     .delete(`https://srj-back-end.vercel.app/blog/posts/${id}`)
+  //     .then((response) => {
+  //       console.log("Blog deleted successfully");
+  //       // Update the state or refetch data to reflect the changes
+  //       fetchData();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error deleting blog:", error);
+  //     });
+  // };
 
-  const handleEditBlog = (id, updatedData) => {
-    console.log(id, "blog id");
-    axios
-      .put(`https://srj-back-end.vercel.app/blog/posts/${id}`, updatedData)
-      .then((response) => {
-        console.log("Blog updated successfully");
-        fetchData();
-      })
-      .catch((error) => {
-        console.error("Error updating blog:", error);
-      });
-  };
+  // const handleEditBlog = (id, updatedData) => {
+  //   console.log(id, "blog id");
+  //   axios
+  //     .put(`https://srj-back-end.vercel.app/blog/posts/${id}`, updatedData)
+  //     .then((response) => {
+  //       console.log("Blog updated successfully");
+  //       fetchData();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error updating blog:", error);
+  //     });
+  // };
 
   const formatCreatedAt = (createdAt) => {
     const date = new Date(createdAt);
