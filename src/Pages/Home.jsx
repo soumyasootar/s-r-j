@@ -129,9 +129,7 @@ const Home = () => {
             w={{ base: "80%", md: "80%", lg: "52%" }}
           >
             {" "}
-            <span style={{ color: "#F96E1E", textShadow:"0.3px 0.3px 0.3px grey"}}>
-              Just 1.2 Kilometers
-            </span> from Jajpur Road Railway station, we provide
+            Just 1.2 Kilometers from Jajpur Road Railway station, we provide
             perfect rooms for your budget friendly business trip or luxurious
             family vacation.{" "}
           </Text>
