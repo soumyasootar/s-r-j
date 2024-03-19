@@ -74,8 +74,9 @@ const Footer = () => {
             color="white"
             bg="purple.500"
             _hover={{ bg: 'purple.600' }}
+            onClick={() => window.open("tel:+919437072657", "_blank")}
           >
-            Call us : 1234567890 
+            Call us : +919437072657 
           </Button>
           </VStack>
         </HStack>
