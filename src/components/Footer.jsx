@@ -31,7 +31,7 @@ const Footer = () => {
             <Image w="150px" src={logo} alt="logo" />
           </Link>
           <Text mt={2} color="gray.500" fontSize="md">
-            Chorda Bye Pass, Jajpur Road, Highway 215, Jajpur, Odisha 755019
+            Chorda By-Pass, Jajpur Road, Highway 215, Jajpur, Odisha 755019
           </Text>
         </Box>
         <HStack
