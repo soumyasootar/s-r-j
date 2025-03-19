@@ -77,10 +77,9 @@ const Contact = () => {
                           variant="ghost"
                           color="#DCE2FF"
                           _hover={{ border: "2px solid #1C6FEB" }}
-                          leftIcon={<MdEmail color="black" size="20px" />}
-                        >
-                          <Link href={"mailto:asuas.sutar@gmail.com"}>
-                            saritaresort@gmail.com
+                          leftIcon={<MdEmail color="black" size="20px" />}>
+                          <Link href={"mailto:saritaresorts@gmail.com"}>
+                            saritaresorts@gmail.com
                           </Link>
                         </Button>
                         <Button
